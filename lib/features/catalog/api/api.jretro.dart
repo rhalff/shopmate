@@ -13,12 +13,12 @@ abstract class _$AttributesApiClient implements ApiClient {
         .path(basePath)
         .path("/:attribute_id")
         .pathParams("attribute_id", attributeId);
-    return makeRequest(req).map(decodeList);
+    return req.go(throwOnErr: true).map(decodeList);
   }
 
   Future<List<Attribute>> getAttributes() async {
     var req = base.get.path(basePath).path("/");
-    return makeRequest(req).map(decodeList);
+    return req.go(throwOnErr: true).map(decodeList);
   }
 
   Future<List<ProductAttribute>> getAttributesByProductId(int productId) async {
@@ -26,7 +26,7 @@ abstract class _$AttributesApiClient implements ApiClient {
         .path(basePath)
         .path("/inProduct/:product_id")
         .pathParams("product_id", productId);
-    return makeRequest(req).map(decodeList);
+    return req.go(throwOnErr: true).map(decodeList);
   }
 
   Future<AttributeValue> getAttributeValues(int attributeId) async {
@@ -34,7 +34,7 @@ abstract class _$AttributesApiClient implements ApiClient {
         .path(basePath)
         .path("/values/:attribute_id")
         .pathParams("attribute_id", attributeId);
-    return makeRequest(req).map(decodeOne);
+    return req.go(throwOnErr: true).map(decodeOne);
   }
 }
 
@@ -45,7 +45,7 @@ abstract class _$CategoriesApiClient implements ApiClient {
         .path(basePath)
         .path("/:category_id")
         .pathParams("category_id", categoryId);
-    return makeRequest(req).map(decodeOne);
+    return req.go(throwOnErr: true).map(decodeOne);
   }
 
   Future<Object> getCategories(String order, int page, int limit) async {
@@ -55,7 +55,7 @@ abstract class _$CategoriesApiClient implements ApiClient {
         .query("order", order)
         .query("page", page)
         .query("limit", limit);
-    return makeRequest(req).map(decodeOne);
+    return req.go(throwOnErr: true).map(decodeOne);
   }
 
   Future<List<Category>> getCategoriesByDepartmentId(int departmentId) async {
@@ -63,7 +63,7 @@ abstract class _$CategoriesApiClient implements ApiClient {
         .path(basePath)
         .path("/inDepartment/:department_id")
         .pathParams("department_id", departmentId);
-    return makeRequest(req).map(decodeList);
+    return req.go(throwOnErr: true).map(decodeList);
   }
 
   Future<List<CategoryBasic>> getProductCategories(int productId) async {
@@ -71,7 +71,7 @@ abstract class _$CategoriesApiClient implements ApiClient {
         .path(basePath)
         .path("/inProduct/:product_id")
         .pathParams("product_id", productId);
-    return makeRequest(req).map(decodeList);
+    return req.go(throwOnErr: true).map(decodeList);
   }
 }
 
@@ -82,12 +82,12 @@ abstract class _$DepartmentsApiClient implements ApiClient {
         .path(basePath)
         .path("/:department_id")
         .pathParams("department_id", departmentId);
-    return makeRequest(req).map(decodeOne);
+    return req.go(throwOnErr: true).map(decodeOne);
   }
 
   Future<List<Department>> getDepartments() async {
     var req = base.get.path(basePath).path("/");
-    return makeRequest(req).map(decodeList);
+    return req.go(throwOnErr: true).map(decodeList);
   }
 }
 
@@ -101,7 +101,7 @@ abstract class _$ProductsApiClient implements ApiClient {
         .query("page", page)
         .query("limit", limit)
         .query("description_length", descriptionLength);
-    return makeRequest(req).map(decodeOne);
+    return req.go(throwOnErr: true).map(decodeOne);
   }
 
   Future<GetProductsResponse> getProductsByCategoryId(
@@ -113,7 +113,7 @@ abstract class _$ProductsApiClient implements ApiClient {
         .query("page", page)
         .query("limit", limit)
         .query("description_length", descriptionLength);
-    return makeRequest(req).map(decodeOne);
+    return req.go(throwOnErr: true).map(decodeOne);
   }
 
   Future<GetProductsResponse> getProductsByDepartmentId(
@@ -125,7 +125,7 @@ abstract class _$ProductsApiClient implements ApiClient {
         .query("page", page)
         .query("limit", limit)
         .query("description_length", descriptionLength);
-    return makeRequest(req).map(decodeOne);
+    return req.go(throwOnErr: true).map(decodeOne);
   }
 
   Future<List<ProductDetail>> getProductDetailsById(int productId) async {
@@ -133,7 +133,7 @@ abstract class _$ProductsApiClient implements ApiClient {
         .path(basePath)
         .path("/:product_id/details")
         .pathParams("product_id", productId);
-    return makeRequest(req).map(decodeList);
+    return req.go(throwOnErr: true).map(decodeList);
   }
 
   Future<ProductComplete> getProductById(int productId) async {
@@ -141,7 +141,7 @@ abstract class _$ProductsApiClient implements ApiClient {
         .path(basePath)
         .path("/:product_id")
         .pathParams("product_id", productId);
-    return makeRequest(req).map(decodeOne);
+    return req.go(throwOnErr: true).map(decodeOne);
   }
 
   Future<ProductLocations> getProductLocations(int productId) async {
@@ -149,7 +149,7 @@ abstract class _$ProductsApiClient implements ApiClient {
         .path(basePath)
         .path("/:product_id/locations")
         .pathParams("product_id", productId);
-    return makeRequest(req).map(decodeOne);
+    return req.go(throwOnErr: true).map(decodeOne);
   }
 
   Future<List<Review>> getProductReviews(int productId) async {
@@ -157,7 +157,7 @@ abstract class _$ProductsApiClient implements ApiClient {
         .path(basePath)
         .path("/:product_id/reviews")
         .pathParams("product_id", productId);
-    return makeRequest(req).map(decodeList);
+    return req.go(throwOnErr: true).map(decodeList);
   }
 
   Future<void> createProductReview(
@@ -176,7 +176,7 @@ abstract class _$ProductsApiClient implements ApiClient {
         .pathParams("product_id", productId)
         .urlEncodedFormField("review", review)
         .urlEncodedFormField("rating", rating);
-    await makeRequest(req);
+    await req.go(throwOnErr: true);
   }
 
   Future<Object> searchProducts(String queryString, String allWords, int page,
@@ -189,6 +189,6 @@ abstract class _$ProductsApiClient implements ApiClient {
         .query("page", page)
         .query("limit", limit)
         .query("description_length", descriptionLength);
-    return makeRequest(req).map(decodeOne);
+    return req.go(throwOnErr: true).map(decodeOne);
   }
 }

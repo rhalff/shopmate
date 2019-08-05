@@ -7,7 +7,7 @@ part of customer.pages;
 // **************************************************************************
 
 abstract class _$SignUpDataValidator implements Validator<SignUpData> {
-  static String SignUpDataFieldMatchMessage(
+  static String signUpDataFieldMatchMessage(
       String baseField, String matchField, Object validatedValue) {
     return 'The password fields do not match';
   }
@@ -16,7 +16,7 @@ abstract class _$SignUpDataValidator implements Validator<SignUpData> {
   ClassValidator getClassValidator() {
     return ClassValidator<SignUpData>(validators: [
       FieldMatchValidator(baseField: 'password', matchField: 'passwordConfirm')
-        ..message = SignUpDataFieldMatchMessage
+        ..message = signUpDataFieldMatchMessage
     ]);
   }
 
@@ -51,6 +51,8 @@ abstract class _$SignUpDataValidator implements Validator<SignUpData> {
     return {
       'name': instance.name,
       'email': instance.email,
+      'password': instance.password,
+      'passwordConfirm': instance.passwordConfirm,
       'password': instance.password,
       'passwordConfirm': instance.passwordConfirm
     };

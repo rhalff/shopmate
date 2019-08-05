@@ -7,8 +7,6 @@ environment:
   sdk: ">=2.2.2 <3.0.0"
 
 dependencies:
-  show: # ^0.3.1
-    path: ../../dartlib/showcase
   flutter:
     sdk: flutter
 
@@ -16,8 +14,7 @@ dependencies:
     sdk: flutter
 
   intl: ^0.15.8
-  jaguar_retrofit: # ^2.8.6
-    path: ../jaguar_client/retrofit
+  jaguar_retrofit: ^2.8.6
   jaguar_serializer: ^2.2.12
   jaguar_cache: ^2.1.2
   validations: ^0.7.0
@@ -33,16 +30,14 @@ dependencies:
   validate: ^1.7.0
   flutter_secure_storage: ^3.2.1+1
   validators: 2.0.0+1
-  errors:
-    path: ../../dartlib/errors
+  errors: ^0.0.1
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
 
 dev_dependencies:
-  jaguar_retrofit_gen: # ^2.8.6
-    path: ../jaguar_client/retrofit_gen
+  jaguar_retrofit_gen: ^2.8.6
   jaguar_serializer_cli: ^2.2.5
   validations_generator: ^0.7.0
   intl_translation: ^0.17.5

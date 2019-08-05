@@ -193,10 +193,10 @@ packages:
   errors:
     dependency: "direct main"
     description:
-      path: "../../dartlib/errors"
-      relative: true
-    source: path
-    version: "1.0.3"
+      name: errors
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.1"
   fixnum:
     dependency: transitive
     description:
@@ -242,13 +242,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.1.0"
-  flutter_svg:
-    dependency: transitive
-    description:
-      name: flutter_svg
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.14.0"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -348,17 +341,17 @@ packages:
   jaguar_retrofit:
     dependency: "direct main"
     description:
-      path: "../jaguar_client/retrofit"
-      relative: true
-    source: path
-    version: "2.8.6"
+      name: jaguar_retrofit
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.8.8"
   jaguar_retrofit_gen:
     dependency: "direct dev"
     description:
-      path: "../jaguar_client/retrofit_gen"
-      relative: true
-    source: path
-    version: "2.8.8"
+      name: jaguar_retrofit_gen
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.8.10"
   jaguar_serializer:
     dependency: "direct main"
     description:
@@ -443,13 +436,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.6.2"
-  path_drawing:
-    dependency: transitive
-    description:
-      name: path_drawing
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.4.1"
   path_parsing:
     dependency: transitive
     description:
@@ -548,13 +534,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.2.3"
-  show:
-    dependency: "direct main"
-    description:
-      path: "../../dartlib/showcase"
-      relative: true
-    source: path
-    version: "0.3.1"
   sky_engine:
     dependency: transitive
     description: flutter
@@ -723,4 +702,4 @@ packages:
     version: "2.1.16"
 sdks:
   dart: ">=2.4.0 <3.0.0"
-  flutter: ">=1.5.9-pre.94 <2.0.0"
+  flutter: ">=1.5.0 <2.0.0"

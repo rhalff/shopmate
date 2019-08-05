@@ -4,7 +4,6 @@ class CustomerBloc extends Bloc<CustomerEvent, CustomerState> {
   final CustomerRepository customerRepository;
   final AuthBloc authBloc;
   StreamSubscription _authBlocSubscription;
-  final errors = Errors();
 
   CustomerBloc({
     @required this.customerRepository,
@@ -12,8 +11,6 @@ class CustomerBloc extends Bloc<CustomerEvent, CustomerState> {
   }) {
     assert(customerRepository != null);
     assert(authBloc != null);
-
-    // errors.addHandler(StringResponseHandler(authBloc: authBloc));
 
     _authBlocSubscription = authBloc.state.listen((state) {
       if (state is SignOut) {

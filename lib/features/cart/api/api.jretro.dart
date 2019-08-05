@@ -16,13 +16,13 @@ abstract class _$ShoppingCartApiClient implements ApiClient {
         .urlEncodedFormField("cart_id", cartId)
         .urlEncodedFormField("product_id", productId)
         .urlEncodedFormField("attributes", attributes);
-    return makeRequest(req).map(decodeList);
+    return req.go(throwOnErr: true).map(decodeList);
   }
 
   Future<List<CartWithProduct>> getCart(String cartId) async {
     var req =
         base.get.path(basePath).path("/:cart_id").pathParams("cart_id", cartId);
-    return makeRequest(req).map(decodeList);
+    return req.go(throwOnErr: true).map(decodeList);
   }
 
   Future<void> emptyCart(String cartId) async {
@@ -30,12 +30,12 @@ abstract class _$ShoppingCartApiClient implements ApiClient {
         .path(basePath)
         .path("/empty/:cart_id")
         .pathParams("cart_id", cartId);
-    await makeRequest(req);
+    await req.go(throwOnErr: true);
   }
 
   Future<CartId> generateUniqueId() async {
     var req = base.get.path(basePath).path("/generateUniqueId");
-    return makeRequest(req).map(decodeOne);
+    return req.go(throwOnErr: true).map(decodeOne);
   }
 
   Future<Object> getSaved(String cartId) async {
@@ -43,7 +43,7 @@ abstract class _$ShoppingCartApiClient implements ApiClient {
         .path(basePath)
         .path("/getSaved/:cart_id")
         .pathParams("cart_id", cartId);
-    return makeRequest(req).map(decodeOne);
+    return req.go(throwOnErr: true).map(decodeOne);
   }
 
   Future<void> moveToCart(int itemId) async {
@@ -51,7 +51,7 @@ abstract class _$ShoppingCartApiClient implements ApiClient {
         .path(basePath)
         .path("/moveToCart/:item_id")
         .pathParams("item_id", itemId);
-    await makeRequest(req);
+    await req.go(throwOnErr: true);
   }
 
   Future<void> removeProduct(int itemId) async {
@@ -59,7 +59,7 @@ abstract class _$ShoppingCartApiClient implements ApiClient {
         .path(basePath)
         .path("/removeProduct/:item_id")
         .pathParams("item_id", itemId);
-    await makeRequest(req);
+    await req.go(throwOnErr: true);
   }
 
   Future<void> saveForLater(int itemId) async {
@@ -67,7 +67,7 @@ abstract class _$ShoppingCartApiClient implements ApiClient {
         .path(basePath)
         .path("/saveForLater/:item_id")
         .pathParams("item_id", itemId);
-    await makeRequest(req);
+    await req.go(throwOnErr: true);
   }
 
   Future<Object> getTotalAmount(String cartId) async {
@@ -75,7 +75,7 @@ abstract class _$ShoppingCartApiClient implements ApiClient {
         .path(basePath)
         .path("/totalAmount/:cart_id")
         .pathParams("cart_id", cartId);
-    return makeRequest(req).map(decodeOne);
+    return req.go(throwOnErr: true).map(decodeOne);
   }
 
   Future<List<Cart>> updateItem(int itemId, int quantity) async {
@@ -84,6 +84,6 @@ abstract class _$ShoppingCartApiClient implements ApiClient {
         .path("/update/:item_id")
         .pathParams("item_id", itemId)
         .urlEncodedFormField("quantity", quantity);
-    return makeRequest(req).map(decodeList);
+    return req.go(throwOnErr: true).map(decodeList);
   }
 }

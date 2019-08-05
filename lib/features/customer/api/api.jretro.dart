@@ -20,7 +20,7 @@ abstract class _$CustomersApiClient implements ApiClient {
         })
         .path(basePath)
         .path("/customer");
-    return makeRequest(req).map(decodeOne);
+    return req.go(throwOnErr: true).map(decodeOne);
   }
 
   Future<Customer> updateCustomer(String name, String email, String password,
@@ -42,7 +42,7 @@ abstract class _$CustomersApiClient implements ApiClient {
         .urlEncodedFormField("day_phone", dayPhone)
         .urlEncodedFormField("eve_phone", evePhone)
         .urlEncodedFormField("mob_phone", mobPhone);
-    return makeRequest(req).map(decodeOne);
+    return req.go(throwOnErr: true).map(decodeOne);
   }
 
   Future<Customer> updateAddress(
@@ -71,7 +71,7 @@ abstract class _$CustomersApiClient implements ApiClient {
         .urlEncodedFormField("postal_code", postalCode)
         .urlEncodedFormField("country", country)
         .urlEncodedFormField("shipping_region_id", shippingRegionId);
-    return makeRequest(req).map(decodeOne);
+    return req.go(throwOnErr: true).map(decodeOne);
   }
 
   Future<Customer> updateCreditCard(String creditCard) async {
@@ -87,7 +87,7 @@ abstract class _$CustomersApiClient implements ApiClient {
         .path(basePath)
         .path("/customers/creditCard")
         .urlEncodedFormField("credit_card", creditCard);
-    return makeRequest(req).map(decodeOne);
+    return req.go(throwOnErr: true).map(decodeOne);
   }
 
   Future<CustomerResponse> signInWithFacebook(String accessToken) async {
@@ -95,7 +95,7 @@ abstract class _$CustomersApiClient implements ApiClient {
         .path(basePath)
         .path("/customers/facebook")
         .urlEncodedFormField("access_token", accessToken);
-    return makeRequest(req).map(decodeOne);
+    return req.go(throwOnErr: true).map(decodeOne);
   }
 
   Future<CustomerResponse> signIn(String email, String password) async {
@@ -104,7 +104,7 @@ abstract class _$CustomersApiClient implements ApiClient {
         .path("/customers/login")
         .urlEncodedFormField("email", email)
         .urlEncodedFormField("password", password);
-    return makeRequest(req).map(decodeOne);
+    return req.go(throwOnErr: true).map(decodeOne);
   }
 
   Future<CustomerResponse> register(
@@ -115,6 +115,6 @@ abstract class _$CustomersApiClient implements ApiClient {
         .urlEncodedFormField("name", name)
         .urlEncodedFormField("email", email)
         .urlEncodedFormField("password", password);
-    return makeRequest(req).map(decodeOne);
+    return req.go(throwOnErr: true).map(decodeOne);
   }
 }
