@@ -207,22 +207,6 @@ class _BaseAppState extends State<BaseApp> {
 
         final theme = isLargeScreen ? lightTheme : lightThemeSmall;
 
-        // Use a light theme, dark theme, or fallback theme.
-        /*
-        final ThemeMode mode = widget.themeMode ?? ThemeMode.system;
-        ThemeData theme;
-        if (widget.darkTheme != null) {
-          final ui.Brightness platformBrightness =
-              MediaQuery.platformBrightnessOf(context);
-          if (mode == ThemeMode.dark ||
-              (mode == ThemeMode.system &&
-                  platformBrightness == ui.Brightness.dark)) {
-            theme = widget.darkTheme;
-          }
-        }
-        theme ??= widget.theme ?? ThemeData.fallback();
-        */
-
         return AnimatedTheme(
           data: theme,
           isMaterialAppTheme: true,
