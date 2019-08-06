@@ -1,21 +1,19 @@
-# Shopmate App 
+# Shopmate App
 
 Proof of concept application against the turing.com api.
 
-## Setup 
+## Libraries
 
-- flutter bloc
-- validations
-- jaguar serializer
-- jaguar orm
-- retro fit
+- [flutter bloc](https://felangel.github.io/bloc/#/gettingstarted)
+- [validations](https://github.com/dartlib/validations/tree/master/validations)
+- [jaguar serializer](https://github.com/Jaguar-dart/jaguar_serializer)
+- [retro fit](https://github.com/Jaguar-dart/client/tree/master/retrofit)
 
 ## Install
 
 ```bash
 flutter pub get
-flutter pub run
-
+flutter run
 ```
 
 ### Build
