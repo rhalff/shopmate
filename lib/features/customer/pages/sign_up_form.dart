@@ -3,7 +3,6 @@ part of customer.pages;
 @FieldMatch(
   baseField: 'password',
   matchField: 'passwordConfirm',
-  message: r'The password fields do not match',
 )
 class SignUpData {
   @Size(

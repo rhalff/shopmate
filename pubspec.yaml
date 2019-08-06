@@ -17,7 +17,7 @@ dependencies:
   jaguar_retrofit: ^2.8.6
   jaguar_serializer: ^2.2.12
   jaguar_cache: ^2.1.2
-  validations: ^0.7.0
+  validations: ^0.8.3
   cached_network_image: ^0.8.0
   flutter_spinkit: ^3.1.0
 
@@ -37,11 +37,11 @@ dependencies:
   cupertino_icons: ^0.1.2
 
 dev_dependencies:
+  build_runner:
   jaguar_retrofit_gen: ^2.8.6
   jaguar_serializer_cli: ^2.2.5
-  validations_generator: ^0.7.0
+  validations_generator: ^0.8.3
   intl_translation: ^0.17.5
-  build_runner:
   flutter_test:
     sdk: flutter
   built_vector: ^0.1.0

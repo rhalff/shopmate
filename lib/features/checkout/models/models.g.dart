@@ -12,7 +12,7 @@ abstract class _$OrderValidator implements Validator<Order> {
     return 'Product Name must be between $min and $max characters.';
   }
 
-  static String quantityMinMessage(num value, Object validatedValue) {
+  static String quantityMinMessage(dynamic value, Object validatedValue) {
     return 'Quantity must at least be 1';
   }
 
@@ -30,9 +30,9 @@ abstract class _$OrderValidator implements Validator<Order> {
 
   String validateProductName(Object value) => errorCheck('productName', value);
   String validateQuantity(Object value) => errorCheck('quantity', value);
-  String validateOrder(Object value) => errorCheck('Order', value);
   @override
-  Map<String, dynamic> props(Order instance) {
-    return {'productName': instance.productName, 'quantity': instance.quantity};
+  PropertyMap<Order> props(Order instance) {
+    return PropertyMap<Order>(
+        {'productName': instance.productName, 'quantity': instance.quantity});
   }
 }

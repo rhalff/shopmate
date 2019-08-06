@@ -7,19 +7,6 @@ part of customer.pages;
 // **************************************************************************
 
 abstract class _$SignUpDataValidator implements Validator<SignUpData> {
-  static String signUpDataFieldMatchMessage(
-      String baseField, String matchField, Object validatedValue) {
-    return 'The password fields do not match';
-  }
-
-  @override
-  ClassValidator getClassValidator() {
-    return ClassValidator<SignUpData>(validators: [
-      FieldMatchValidator(baseField: 'password', matchField: 'passwordConfirm')
-        ..message = signUpDataFieldMatchMessage
-    ]);
-  }
-
   static String passwordSizeMessage(int min, int max, Object validatedValue) {
     return 'password length must be between $min and $max';
   }
@@ -31,30 +18,41 @@ abstract class _$SignUpDataValidator implements Validator<SignUpData> {
           name: 'name', validators: [SizeValidator(min: 2, max: 255)]),
       FieldValidator<String>(
           name: 'email', validators: [EmailValidator(), NotEmptyValidator()]),
-      FieldValidator<String>(name: 'password', validators: [
-        NotEmptyValidator(),
-        SizeValidator(min: 2, max: 20)..message = passwordSizeMessage
-      ]),
       FieldValidator<String>(
-          name: 'passwordConfirm', validators: [NotEmptyValidator()])
+          name: 'password',
+          validators: [
+            NotEmptyValidator(),
+            SizeValidator(min: 2, max: 20)..message = passwordSizeMessage
+          ],
+          validateClass: true),
+      FieldValidator<String>(
+          name: 'passwordConfirm',
+          validators: [NotEmptyValidator()],
+          validateClass: true)
     ];
   }
 
   String validateName(Object value) => errorCheck('name', value);
   String validateEmail(Object value) => errorCheck('email', value);
-  String validatePassword(Object value) => errorCheck('password', value);
-  String validatePasswordConfirm(Object value) =>
-      errorCheck('passwordConfirm', value);
-  String validateSignUpData(Object value) => errorCheck('SignUpData', value);
+  String validatePassword(Object value, SignUpData object) =>
+      crossErrorCheck(object, 'password', value);
+  String validatePasswordConfirm(Object value, SignUpData object) =>
+      crossErrorCheck(object, 'passwordConfirm', value);
   @override
-  Map<String, dynamic> props(SignUpData instance) {
-    return {
+  PropertyMap<SignUpData> props(SignUpData instance) {
+    return PropertyMap<SignUpData>({
       'name': instance.name,
       'email': instance.email,
       'password': instance.password,
-      'passwordConfirm': instance.passwordConfirm,
-      'password': instance.password,
       'passwordConfirm': instance.passwordConfirm
-    };
+    });
+  }
+
+  @override
+  ClassValidator getClassValidator() {
+    return ClassValidator<SignUpData>(validators: [
+      FieldMatchValidator(baseField: 'password', matchField: 'passwordConfirm')
+        ..affectedFields = ['password', 'passwordConfirm']
+    ]);
   }
 }

@@ -72,17 +72,15 @@ abstract class _$DeliveryFormDataValidator
   String validateCity(Object value) => errorCheck('city', value);
   String validateState(Object value) => errorCheck('state', value);
   String validateZipCode(Object value) => errorCheck('zipCode', value);
-  String validateDeliveryFormData(Object value) =>
-      errorCheck('DeliveryFormData', value);
   @override
-  Map<String, dynamic> props(DeliveryFormData instance) {
-    return {
+  PropertyMap<DeliveryFormData> props(DeliveryFormData instance) {
+    return PropertyMap<DeliveryFormData>({
       'firstName': instance.firstName,
       'lastName': instance.lastName,
       'address': instance.address,
       'city': instance.city,
       'state': instance.state,
       'zipCode': instance.zipCode
-    };
+    });
   }
 }
