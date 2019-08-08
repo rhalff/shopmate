@@ -7,6 +7,7 @@ environment:
   sdk: ">=2.2.2 <3.0.0"
 
 dependencies:
+  path_provider: ^1.2.0
   flutter:
     sdk: flutter
 
@@ -14,19 +15,19 @@ dependencies:
     sdk: flutter
 
   intl: ^0.15.8
-  jaguar_retrofit: ^2.8.6
+  jaguar_retrofit: ^2.8.8
   jaguar_serializer: ^2.2.12
   jaguar_cache: ^2.1.2
   validations: ^0.8.3
-  cached_network_image: ^0.8.0
+  cached_network_image: ^1.1.1
   flutter_spinkit: ^3.1.0
 
-  timeago: ^2.0.16
+  timeago: ^2.0.18
   shared_preferences: ^0.5.3
-  equatable: ^0.2.6
-  meta: ^1.1.6
-  bloc: ^0.14.2
-  flutter_bloc: ^0.15.1
+  equatable: ^0.4.0
+  meta: ^1.1.7
+  bloc: ^0.14.4
+  flutter_bloc: ^0.20.0
   validate: ^1.7.0
   flutter_secure_storage: ^3.2.1+1
   validators: 2.0.0+1
