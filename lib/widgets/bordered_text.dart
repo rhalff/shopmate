@@ -1,21 +1,6 @@
 part of widgets;
 
-/// Adds stroke to text widget /// {@tool sample}
-/// We can apply a very thin and subtle stroke to a [Text]
-/// ```dart
-/// BorderedText(
-///   strokeWidth: 1.0,
-///   text: Text(
-///     'Bordered Text',
-///     style: TextStyle(
-///       decoration: TextDecoration.none,
-///       decorationStyle: TextDecorationStyle.wavy,
-///       decorationColor: Colors.red,
-///     ),
-///   ),
-/// )
-/// ```
-/// {@end-tool}
+/// Adds stroke to text widget
 class BorderedText extends StatelessWidget {
   BorderedText({
     this.strokeCap = StrokeCap.round,

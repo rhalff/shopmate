@@ -3,6 +3,7 @@ library cart.widgets;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:shopmate/common/common.dart';
 import 'package:shopmate/controls/controls.dart';
 import 'package:shopmate/features/catalog/widgets/widgets.dart';

@@ -8,10 +8,8 @@ class ProductRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final isLargeScreen = MediaQuery.of(context).size.width > 600;
 
     return Wrap(
-      // mainAxisAlignment: MainAxisAlignment.spaceBetween,
       direction: Axis.horizontal,
       alignment: WrapAlignment.spaceBetween,
       runAlignment: WrapAlignment.spaceBetween,
@@ -68,17 +66,6 @@ class ProductRow extends StatelessWidget {
             ),
           ),
         ),
-        /*
-        Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: <Widget>[
-            Container(
-              margin: const EdgeInsets.only(left: 35.0),
-              child: isLargeScreen ? ProductActions(product: product) : null,
-            ),
-          ],
-        ),
-        */
       ],
     );
   }

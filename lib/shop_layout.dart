@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:page_transition/page_transition.dart';
 
 import 'features/auth/blocs/blocs.dart';
 import 'features/cart/widgets/widgets.dart';
 import 'features/customer/models/models.dart';
 import 'features/customer/screens/screens.dart';
-import 'home.dart';
 import 'navigation/bottom_button.dart';
 import 'widgets/widgets.dart';
 
@@ -32,14 +32,6 @@ class ShopLayout extends StatefulWidget {
 
 class _ShopLayoutState extends State<ShopLayout> {
   static final _items = <LinkItem>[
-    LinkItem(
-      title: 'Home',
-      route: Home.route,
-      icon: Icon(
-        Icons.home,
-        color: Colors.white,
-      ),
-    ),
     LinkItem(
       title: 'Register',
       route: SignUpScreen.route,
@@ -78,10 +70,10 @@ class _ShopLayoutState extends State<ShopLayout> {
     if (widget.backgroundImage != null) {
       backgroundColor = Colors.transparent;
       appBarColor = theme.accentColor;
-      elevation = 0;
+      elevation = 4;
     } else {
       appBarColor = theme.accentColor;
-      elevation = 0;
+      elevation = 4;
     }
 
     Widget child = BlocBuilder(
@@ -130,14 +122,6 @@ class _ShopLayoutState extends State<ShopLayout> {
     if (state is Authenticated) {
       items = <LinkItem>[
         LinkItem(
-          title: 'Home',
-          route: Home.route,
-          icon: Icon(
-            Icons.home,
-            color: Colors.white,
-          ),
-        ),
-        LinkItem(
           title: 'Profile',
           route: ProfileScreen.route,
           icon: Icon(
@@ -161,7 +145,7 @@ class _ShopLayoutState extends State<ShopLayout> {
     return BottomNavigationBar(
       backgroundColor: Colors.black,
       currentIndex: 0,
-      onTap: (int index) => _onItemTap(items[index]),
+      onTap: (int index) => _onItemTap(items[index], index),
       items: items.map((LinkItem link) {
         return BottomButton(
           icon: link.icon,
@@ -176,11 +160,23 @@ class _ShopLayoutState extends State<ShopLayout> {
     _authBloc.dispatch(SignOut());
   }
 
-  void _onItemTap(LinkItem item) {
+  void _onItemTap(LinkItem item, num index) {
     if (item.onTap != null) {
       item.onTap();
     } else {
-      Navigator.of(context).pushNamed(item.route);
+      Alignment alignment;
+      if (index == 0) {
+        alignment = Alignment.bottomLeft;
+      } else if (index == 1) {
+        alignment = Alignment.bottomRight;
+      } else {
+        alignment = Alignment.bottomCenter;
+      }
+
+      Navigator.of(context).pushNamed(item.route, arguments: {
+        'transition': PageTransitionType.scale,
+        'alignment': alignment,
+      });
     }
   }
 }

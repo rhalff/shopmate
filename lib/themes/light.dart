@@ -33,7 +33,7 @@ ThemeData lightTheme = ThemeData(
       fontSize: 72.0,
       fontFamily: 'PlayfairDisplay',
       fontWeight: FontWeight.bold,
-      color: Color(0xFF2E2E2E),
+      color: TypographyColors[0],
     ),
 
     //
@@ -41,7 +41,7 @@ ThemeData lightTheme = ThemeData(
       fontSize: 64.0,
       fontFamily: 'PlayfairDisplay',
       fontWeight: FontWeight.bold,
-      color: Color(0xFF2E2E2E),
+      color: TypographyColors[0],
     ),
 
     //
@@ -49,7 +49,7 @@ ThemeData lightTheme = ThemeData(
       fontSize: 48.0,
       fontFamily: 'PlayfairDisplay',
       fontWeight: FontWeight.bold,
-      color: Color(0xFF2E2E2E),
+      color: TypographyColors[0],
     ),
 
     //
@@ -57,7 +57,7 @@ ThemeData lightTheme = ThemeData(
       fontSize: 24.0,
       fontFamily: 'PlayfairDisplay',
       fontWeight: FontWeight.bold,
-      color: Color(0xFF2E2E2E),
+      color: TypographyColors[0],
     ),
 
     // H1
@@ -65,7 +65,7 @@ ThemeData lightTheme = ThemeData(
       fontSize: 48.0,
       fontFamily: 'PlayfairDisplay',
       fontWeight: FontWeight.bold,
-      color: Color(0xFF2E2E2E),
+      color: TypographyColors[0],
     ),
 
     // H2
@@ -73,7 +73,7 @@ ThemeData lightTheme = ThemeData(
       fontSize: 24.0,
       fontFamily: 'PlayfairDisplay',
       fontWeight: FontWeight.bold,
-      color: Color(0xFF2E2E2E),
+      color: TypographyColors[0],
     ),
 
     // H3
@@ -81,7 +81,7 @@ ThemeData lightTheme = ThemeData(
       fontSize: 16.0,
       fontFamily: 'PlayfairDisplay',
       fontWeight: FontWeight.bold,
-      color: Color(0xFF2E2E2E),
+      color: TypographyColors[0],
     ),
 
     // Topbar
@@ -89,7 +89,7 @@ ThemeData lightTheme = ThemeData(
       fontSize: 15.0,
       fontFamily: 'Montserrat',
       fontWeight: FontWeight.bold,
-      color: Color(0xFF2E2E2E),
+      color: TypographyColors[0],
     ),
 
     // Body Normal
@@ -97,7 +97,7 @@ ThemeData lightTheme = ThemeData(
       fontSize: 16.0,
       fontFamily: 'OpenSans',
       fontWeight: FontWeight.w300,
-      color: Color(0xFF6C6C6C),
+      color: TypographyColors[1],
     ),
 
     // Body Small
@@ -105,7 +105,7 @@ ThemeData lightTheme = ThemeData(
       fontSize: 12.0,
       fontFamily: 'OpenSans',
       fontWeight: FontWeight.w300,
-      color: Color(0xFF6C6C6C),
+      color: TypographyColors[1],
     ),
 
     // button: TextStyle(fontSize: 14.0, fontFamily: 'Hind'),

@@ -67,6 +67,10 @@ class _CartIconButtonState extends State<CartIconButton> {
   }
 
   void _onPressed() {
-    Navigator.of(context).pushNamed(CartScreen.route);
+    Navigator.of(context).pushNamed(CartScreen.route, arguments: {
+      'transition': PageTransitionType.scale,
+      'alignment': Alignment.topRight,
+      'duration': Duration(milliseconds: 400),
+    });
   }
 }

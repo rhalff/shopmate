@@ -15,12 +15,19 @@ class _ProductScreenState extends State<ProductScreen> {
   ProductBloc _productBloc;
 
   @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-
+  void initState() {
     _productBloc = BlocProvider.of<ProductBloc>(context);
 
-    _productBloc.dispatch(LoadProduct(productId: widget.product.productId));
+    if (_productBloc.currentState is! ProductLoaded ||
+        widget.product.productId !=
+            (_productBloc.currentState as ProductLoaded)
+                .productDetails
+                .product
+                .productId) {
+      _productBloc.dispatch(LoadProduct(productId: widget.product.productId));
+    }
+
+    super.initState();
   }
 
   @override
@@ -55,6 +62,15 @@ class _ProductScreenState extends State<ProductScreen> {
   _buildProductPage(FullProductDetails productDetails) {
     return Column(
       children: <Widget>[
+        /*
+        Hero(
+          tag: 'product-${productDetails.product.productId}',
+          child: ProductDetails(
+            key: Key('${productDetails.product.productId}'),
+            productDetails: productDetails,
+          ),
+        ),
+        */
         ProductDetails(
           key: Key('${productDetails.product.productId}'),
           productDetails: productDetails,

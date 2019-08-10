@@ -54,22 +54,6 @@ class _ProductDetailsState extends State<ProductDetails> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  /*
-                  BreadCrumbs(items: [
-                    LinkItem(
-                      title: 'Home',
-                      route: '/home',
-                    ),
-                    LinkItem(
-                      title: 'All Categories',
-                      route: '/home',
-                    ),
-                    LinkItem(
-                      title: 'Menu\s Clothing & Accessories',
-                      route: '/home',
-                    ),
-                  ]),
-                  */
                   if (productDetails != null)
                     Container(
                       margin: EdgeInsets.only(bottom: 30),

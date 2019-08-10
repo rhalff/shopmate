@@ -23,25 +23,10 @@ class _CatalogOverviewState extends State<CatalogOverview>
   @override
   Widget build(BuildContext context) {
     return Container(
-      /*
-      padding: EdgeInsets.only(
-        top: 15,
-        left: 30,
-        right: 30,
-      ),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        border: Border.all(
-          color: Colors.grey,
-          width: 0.3,
-        ),
-      ),
-      */
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Container(
-            // distinct if small device.
             padding: isLargeScreen
                 ? EdgeInsets.only(
                     top: 15,
@@ -63,7 +48,6 @@ class _CatalogOverviewState extends State<CatalogOverview>
             child: Column(
               children: <Widget>[
                 _buildOverviewHeader(context),
-                SizedBox(height: 25),
               ],
             ),
           ),
@@ -91,16 +75,32 @@ class _CatalogOverviewState extends State<CatalogOverview>
     if (_viewType == CatalogViewType.listView) {
       return ProductList(
         products: widget.products,
+        onScroll: _onScroll,
       );
     }
 
     return ProductGrid(
       products: widget.products,
+      onScroll: _onScroll,
     );
+  }
+
+  double _headerMaxHeight = 50;
+  double _headerHeight = 50;
+
+  _onScroll(ScrollController controller) {
+    setState(() {
+      var offset = controller.offset;
+
+      if (_headerHeight > 0 && offset < _headerMaxHeight) {
+        _headerHeight = _headerMaxHeight - offset;
+      }
+    });
   }
 
   _buildOverviewHeader(BuildContext context) {
     final theme = Theme.of(context);
+    final opacity = _headerHeight / _headerMaxHeight;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -133,19 +133,24 @@ class _CatalogOverviewState extends State<CatalogOverview>
             )
           ],
         ),
-        SizedBox(height: 15),
         if (widget.description != null)
-          Text(
-            widget.description,
-            style: theme.textTheme.body1,
-            softWrap: true,
-          ),
+          Container(
+            padding: EdgeInsets.only(top: 15),
+            color: Colors.white10.withOpacity(opacity),
+            height: _headerHeight,
+            child: Text(
+              widget.description,
+              style: theme.textTheme.body1,
+              softWrap: true,
+            ),
+          )
       ],
     );
   }
 
   _toggleView() {
     setState(() {
+      _headerHeight = _headerMaxHeight;
       _viewType = _viewType == CatalogViewType.listView
           ? CatalogViewType.gridView
           : CatalogViewType.listView;

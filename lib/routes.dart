@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:page_transition/page_transition.dart';
 
 import 'application.dart';
 import 'features/cart/screens/screens.dart';
@@ -16,7 +17,7 @@ RouteFactory routes({
 }) {
   return (settings) {
     Widget screen;
-    final Map<String, dynamic> arguments = settings.arguments;
+    final Map<String, dynamic> arguments = settings.arguments ?? {};
     switch (settings.name) {
       case Home.route:
         screen = MultiBlocProvider(
@@ -109,6 +110,11 @@ RouteFactory routes({
         );
     }
 
-    return MaterialPageRoute(builder: (BuildContext context) => screen);
+    return PageTransition(
+      child: screen,
+      type: arguments['transition'] ?? PageTransitionType.rightToLeft,
+      alignment: arguments['alignment'],
+      duration: arguments['duration'] ?? Duration(milliseconds: 400),
+    );
   };
 }
