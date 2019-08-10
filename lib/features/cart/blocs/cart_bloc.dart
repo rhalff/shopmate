@@ -40,6 +40,8 @@ class CartBloc extends Bloc<CartEvent, CartState> {
 
   Stream<CartState> _addToCart(AddToCart event) async* {
     if (currentState is CartLoaded) {
+      yield CartLoading();
+
       final List<CartWithProduct> updatedCart = await cartRepository.addProduct(
         event.productId,
         event.size,

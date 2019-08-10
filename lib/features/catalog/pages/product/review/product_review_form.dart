@@ -49,6 +49,7 @@ class _ProductReviewFormState extends State<ProductReviewForm> {
   Widget _pleaseLogin() {
     return Center(
       child: Container(
+        padding: const EdgeInsets.only(top: 15),
         child: NavLink(
           LinkItem(
             title: 'Please login first',

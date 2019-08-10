@@ -45,7 +45,6 @@ class _CartScreenState extends State<CartScreen> {
                 children: <Widget>[
                   IconButton(
                     iconSize: isLargeScreen ? 48 : 24,
-                    // icon: const Icon(ShopMate.close_black),
                     icon: const Icon(
                       Icons.close,
                       color: Color(0xFF2E2E2E),

@@ -28,10 +28,13 @@ class _AddToCartButtonState extends State<AddToCartButton> {
 
   @override
   Widget build(BuildContext context) {
-    return RoundedButton(
-      text: 'Add to cart',
-      onPressed: isEnabled ? _dispatch : null,
-    );
+    return BlocBuilder<CartBloc, CartState>(
+        builder: (BuildContext context, CartState state) {
+      return RoundedButton(
+        text: 'Add to cart',
+        onPressed: state is CartLoaded && isEnabled ? _dispatch : null,
+      );
+    });
   }
 
   void _dispatch() {

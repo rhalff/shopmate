@@ -19,15 +19,8 @@ class _CartIconButtonState extends State<CartIconButton> {
 
     const icon = const Icon(Icons.shopping_cart);
 
-    if (!(cartState is CartLoaded)) {
-      return icon;
-    }
-
-    final state = cartState as CartLoaded;
-
-    return Center(
-      child: GestureDetector(
-        onTap: _onPressed,
+    if (cartState is CartLoading) {
+      return Center(
         child: Stack(
           children: <Widget>[
             IconButton(
@@ -35,35 +28,69 @@ class _CartIconButtonState extends State<CartIconButton> {
               tooltip: 'Show shopping cart',
               onPressed: _onPressed,
             ),
-            if (state.cart.length > 0)
-              Positioned(
-                right: 0,
-                top: 8,
-                child: new Container(
-                  padding: EdgeInsets.all(2),
-                  decoration: new BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  constraints: BoxConstraints(
-                    minWidth: 20,
-                    minHeight: 20,
-                  ),
-                  child: Text(
-                    '${state.totalItems}',
-                    style: TextStyle(
-                      color: theme.accentColor,
-                      fontSize: 12,
-                      fontWeight: FontWeight.bold,
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
+            Positioned(
+              right: 4,
+              top: 10,
+              child: SizedBox(
+                // padding: EdgeInsets.all(2),
+                width: 14,
+                height: 14,
+                child: CircularProgressIndicator(
+                  strokeWidth: 1,
+                  valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
                 ),
               ),
+            ),
           ],
         ),
-      ),
-    );
+      );
+    }
+
+    if (cartState is CartLoaded) {
+      final state = cartState;
+
+      return Center(
+        child: GestureDetector(
+          onTap: _onPressed,
+          child: Stack(
+            children: <Widget>[
+              IconButton(
+                icon: icon,
+                tooltip: 'Show shopping cart',
+                onPressed: _onPressed,
+              ),
+              if (state.cart.length > 0)
+                Positioned(
+                  right: 0,
+                  top: 8,
+                  child: new Container(
+                    padding: EdgeInsets.all(2),
+                    decoration: new BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    constraints: BoxConstraints(
+                      minWidth: 20,
+                      minHeight: 20,
+                    ),
+                    child: Text(
+                      '${state.totalItems}',
+                      style: TextStyle(
+                        color: theme.accentColor,
+                        fontSize: 12,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                ),
+            ],
+          ),
+        ),
+      );
+    }
+
+    return icon;
   }
 
   void _onPressed() {
