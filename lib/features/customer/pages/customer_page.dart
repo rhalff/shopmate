@@ -11,21 +11,43 @@ class CustomerPage extends StatelessWidget {
   });
   @override
   Widget build(BuildContext context) {
+    final isLargeScreen = MediaQuery.of(context).size.width > 600;
+
     return Scaffold(
       body: SafeArea(
         child: ScrollPage(
           child: Container(
-            padding: const EdgeInsets.symmetric(horizontal: 64.0),
             color: Colors.white,
-            child: Center(
-              child: Column(
-                children: <Widget>[
-                  SizedBox(height: 50),
-                  if (title != null) Header(title),
-                  SizedBox(height: 50),
-                  child,
-                ],
-              ),
+            child: Column(
+              children: <Widget>[
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: <Widget>[
+                    IconButton(
+                      iconSize: isLargeScreen ? 48 : 24,
+                      icon: const Icon(
+                        Icons.close,
+                        color: Color(0xFF2E2E2E),
+                      ),
+                      tooltip:
+                          MaterialLocalizations.of(context).closeButtonTooltip,
+                      onPressed: () {
+                        Navigator.maybePop(context);
+                      },
+                    )
+                  ],
+                ),
+                Center(
+                  child: Column(
+                    children: <Widget>[
+                      SizedBox(height: 50),
+                      if (title != null) Header(title),
+                      SizedBox(height: 50),
+                      child,
+                    ],
+                  ),
+                ),
+              ],
             ),
           ),
         ),
