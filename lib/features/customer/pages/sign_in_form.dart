@@ -1,12 +1,28 @@
 part of customer.pages;
 
 class _SignInData {
-  String email = '';
-  String password = '';
+  @Email()
+  @NotEmpty()
+  String email;
+
+  @NotEmpty()
+  @Size(
+    min: 2,
+    max: 20,
+    message: r'password length must be between $min and $max',
+  )
+  String password;
+
   bool rememberMe = false;
 }
 
+@GenValidator()
+class SignInDataValidator extends Validator<_SignInData>
+    with _$SignInDataValidator {}
+
 class SignInForm extends StatefulWidget {
+  final String error;
+  SignInForm({this.error});
   @override
   _SignInFormState createState() => _SignInFormState();
 }
@@ -19,10 +35,13 @@ class _SignInFormState extends State<SignInForm> {
   FocusNode _passwordFocus = FocusNode();
 
   CustomerBloc _customerBloc;
+  SignInDataValidator _validator;
 
   @override
   void initState() {
     super.initState();
+
+    _validator = SignInDataValidator();
 
     _customerBloc = BlocProvider.of<CustomerBloc>(context);
   }
@@ -34,20 +53,26 @@ class _SignInFormState extends State<SignInForm> {
 
   Widget _buildForm(BuildContext context) {
     return Form(
-      onChanged: () {
-        _formKey.currentState.validate();
-      },
       key: _formKey,
       child: Column(
         children: <Widget>[
+          if (widget.error != null)
+            ErrorContainer(
+              error: widget.error,
+            ),
           EmailField(
+            autovalidate: false,
             focusNode: _emailFocus,
+            validator: _validator.validateEmail,
+            onChange: (value) {},
             onSaved: (String value) {
               _data.email = value;
             },
           ),
           PasswordField(
+            autovalidate: false,
             focusNode: _passwordFocus,
+            validator: _validator.validatePassword,
             onSaved: (String value) {
               _data.password = value;
             },

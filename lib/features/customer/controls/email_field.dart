@@ -5,38 +5,36 @@ class EmailField extends StatelessWidget {
   final FormFieldSetter<String> onSaved;
   final String value;
   final bool enabled;
+  final FormFieldValidator<String> validator;
+  final bool autovalidate;
+  final ValueChanged<String> onChange;
   EmailField({
     Key key,
+    this.autovalidate = true,
     this.enabled = true,
     this.value,
     this.focusNode,
+    this.onChange,
     this.onSaved,
+    this.validator,
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return CustomerFormField(
       value: value,
+      autovalidate: autovalidate,
       enabled: enabled,
       keyboardType: TextInputType.emailAddress,
       textInputAction: TextInputAction.next,
       placeholder: 'Email',
       textAlign: TextAlign.center,
-      validator: _validateEmail,
+      validator: validator,
       focusNode: focusNode,
       inputFormatters: <TextInputFormatter>[
         BlacklistingTextInputFormatter(RegExp(' ')),
       ],
+      onChange: onChange,
       onSaved: onSaved,
     );
-  }
-
-  String _validateEmail(String value) {
-    try {
-      Validate.isEmail(value);
-    } catch (e) {
-      return 'The E-mail Address must be a valid email address.';
-    }
-
-    return null;
   }
 }

@@ -42,7 +42,7 @@ class CustomerLoaded extends CustomerState {
 }
 
 class CustomerError extends CustomerState {
-  final Error error;
+  final String error;
 
   CustomerError(this.error) : super([error]);
 

@@ -5,12 +5,14 @@ class NameField extends StatelessWidget {
   final FormFieldSetter<String> onSaved;
   final String value;
   final String placeholder;
+  final FormFieldValidator<String> validator;
   NameField({
     Key key,
     this.value,
     this.placeholder = 'Name',
     this.focusNode,
     this.onSaved,
+    this.validator,
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -19,18 +21,10 @@ class NameField extends StatelessWidget {
       textInputAction: TextInputAction.next,
       placeholder: placeholder,
       textAlign: TextAlign.center,
-      validator: _validateName,
+      validator: validator,
       focusNode: focusNode,
       inputFormatters: <TextInputFormatter>[],
       onSaved: onSaved,
     );
-  }
-
-  String _validateName(String value) {
-    if (value.length > 255) {
-      return 'Name cannot exceed more than 255 characters';
-    }
-
-    return null;
   }
 }

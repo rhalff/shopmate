@@ -38,7 +38,7 @@ class CustomerFormField extends StatefulWidget {
     this.textCapitalization = TextCapitalization.none,
     this.textInputAction,
     this.validator,
-    this.value = '',
+    this.value,
   });
 
   @override
@@ -52,7 +52,11 @@ class _CustomerFormFieldState extends State<CustomerFormField> {
   void initState() {
     super.initState();
 
-    _controller = TextEditingController(text: widget.value);
+    if (widget.value != null) {
+      _controller = TextEditingController(text: widget.value);
+    } else {
+      _controller = TextEditingController();
+    }
     if (widget.onChange != null) {
       _controller.addListener(_onChange);
     }

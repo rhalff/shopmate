@@ -12,6 +12,7 @@ class ErrorContainer extends StatelessWidget {
     print(error);
     return Center(
       child: Card(
+        elevation: 4,
         child: Padding(
           padding: const EdgeInsets.all(18.0),
           child: Text(

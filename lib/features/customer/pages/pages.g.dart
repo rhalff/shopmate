@@ -6,9 +6,45 @@ part of customer.pages;
 // ValidatorGenerator
 // **************************************************************************
 
-abstract class _$SignUpDataValidator implements Validator<SignUpData> {
+abstract class _$SignInDataValidator implements Validator<_SignInData> {
   static String passwordSizeMessage(int min, int max, Object validatedValue) {
     return 'password length must be between $min and $max';
+  }
+
+  @override
+  List<FieldValidator> getFieldValidators() {
+    return [
+      FieldValidator<String>(
+          name: 'email', validators: [EmailValidator(), NotEmptyValidator()]),
+      FieldValidator<String>(name: 'password', validators: [
+        NotEmptyValidator(),
+        SizeValidator(min: 2, max: 20)..message = passwordSizeMessage
+      ])
+    ];
+  }
+
+  String validateEmail(Object value) => errorCheck('email', value);
+  String validatePassword(Object value) => errorCheck('password', value);
+  @override
+  PropertyMap<_SignInData> props(_SignInData instance) {
+    return PropertyMap<_SignInData>(
+        {'email': instance.email, 'password': instance.password});
+  }
+}
+
+abstract class _$SignUpDataValidator implements Validator<SignUpData> {
+  static String passwordSizeMessage1(int min, int max, Object validatedValue) {
+    return 'password length must be between $min and $max';
+  }
+
+  static String signUpDataFieldMatchBaseFieldMessage(
+      String baseField, String matchField, Object validatedValue) {
+    return 'Password should match password confirmation.';
+  }
+
+  static String signUpDataFieldMatchMatchFieldMessage(
+      String baseField, String matchField, Object validatedValue) {
+    return 'Password confirmation should match password.';
   }
 
   @override
@@ -22,7 +58,7 @@ abstract class _$SignUpDataValidator implements Validator<SignUpData> {
           name: 'password',
           validators: [
             NotEmptyValidator(),
-            SizeValidator(min: 2, max: 20)..message = passwordSizeMessage
+            SizeValidator(min: 2, max: 20)..message = passwordSizeMessage1
           ],
           validateClass: true),
       FieldValidator<String>(
@@ -53,6 +89,8 @@ abstract class _$SignUpDataValidator implements Validator<SignUpData> {
     return ClassValidator<SignUpData>(validators: [
       FieldMatchValidator(baseField: 'password', matchField: 'passwordConfirm')
         ..affectedFields = ['password', 'passwordConfirm']
+        ..baseFieldMessage = signUpDataFieldMatchBaseFieldMessage
+        ..matchFieldMessage = signUpDataFieldMatchMatchFieldMessage
     ]);
   }
 }

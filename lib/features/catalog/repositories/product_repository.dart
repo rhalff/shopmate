@@ -24,7 +24,7 @@ class ProductRepository {
       final GetProductsResponse productResult =
           await productsApi.getProducts(page, limit, descriptionLength);
 
-      cache.upsert(cacheKey, productResult);
+      cache.upsert(cacheKey, productResult.rows);
 
       return productResult.rows;
     }
@@ -51,7 +51,12 @@ class ProductRepository {
         descriptionLength,
       );
 
-      cache.upsert(cacheKey, productResult);
+      cache.upsert(cacheKey, productResult.rows);
+
+      final Iterable<Future<FullProductDetails>> products = productResult.rows
+          .map((product) => getFullProductDetails(product.productId));
+
+      await Future.wait(products);
 
       return productResult.rows;
     }
@@ -78,7 +83,7 @@ class ProductRepository {
         descriptionLength,
       );
 
-      cache.upsert(cacheKey, productResult);
+      cache.upsert(cacheKey, productResult.rows);
 
       return productResult.rows;
     }

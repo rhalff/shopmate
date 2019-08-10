@@ -16,6 +16,8 @@ class _SignInScreenState extends State<SignInScreen> {
 
     _authBloc = BlocProvider.of<AuthBloc>(context);
     _customerBloc = BlocProvider.of<CustomerBloc>(context);
+
+    _customerBloc.dispatch(ClearCustomerData());
   }
 
   @override
@@ -30,20 +32,20 @@ class _SignInScreenState extends State<SignInScreen> {
       child: BlocBuilder(
         bloc: _customerBloc,
         builder: (BuildContext context, CustomerState state) {
+          String error;
           if (state is CustomerSigningIn) {
             return CustomerPage(
               title: 'Signing in...',
               child: CircularProgressIndicator(),
             );
           } else if (state is CustomerError) {
-            return ErrorContainer(
-              error: state.error.toString(),
-            );
+            // should already be an object, not a json string.
+            error = state.error;
           }
 
           return CustomerPage(
             title: 'Sign In',
-            child: SignInForm(),
+            child: SignInForm(error: error),
           );
         },
       ),

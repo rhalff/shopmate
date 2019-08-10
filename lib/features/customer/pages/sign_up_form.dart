@@ -3,6 +3,8 @@ part of customer.pages;
 @FieldMatch(
   baseField: 'password',
   matchField: 'passwordConfirm',
+  baseFieldMessage: 'Password should match password confirmation.',
+  matchFieldMessage: 'Password confirmation should match password.',
 )
 class SignUpData {
   @Size(
@@ -32,6 +34,8 @@ class SignUpDataValidator extends Validator<SignUpData>
     with _$SignUpDataValidator {}
 
 class SignUpForm extends StatefulWidget {
+  final String error;
+  SignUpForm({this.error});
   @override
   _SignUpFormState createState() => _SignUpFormState();
 }
@@ -40,10 +44,13 @@ class _SignUpFormState extends State<SignUpForm> {
   final _formKey = GlobalKey<FormState>();
   final _data = SignUpData();
   CustomerBloc _customerBloc;
+  SignUpDataValidator _validator;
 
   @override
   void initState() {
     super.initState();
+
+    _validator = SignUpDataValidator();
 
     _customerBloc = BlocProvider.of<CustomerBloc>(context);
   }
@@ -54,8 +61,13 @@ class _SignUpFormState extends State<SignUpForm> {
       key: _formKey,
       child: Column(
         children: <Widget>[
+          if (widget.error != null)
+            ErrorContainer(
+              error: widget.error,
+            ),
           NameField(
             // focusNode: _emailFocus,
+            validator: _validator.validateName,
             onSaved: (String value) {
               setState(() {
                 _data.name = value;
@@ -64,6 +76,8 @@ class _SignUpFormState extends State<SignUpForm> {
           ),
           EmailField(
             // focusNode: _emailFocus,
+            autovalidate: false,
+            validator: _validator.validateEmail,
             onSaved: (String value) {
               setState(() {
                 _data.email = value;
@@ -71,20 +85,20 @@ class _SignUpFormState extends State<SignUpForm> {
             },
           ),
           PasswordField(
+            autovalidate: false,
             // focusNode: _passwordFocus,
             onChange: (String value) {
-              setState(() {
-                _data.password = value;
-              });
+              _data.password = value;
             },
-            onSaved: (String value) {
-              setState(() {
-                _data.passwordConfirm = value;
-              });
-            },
+            validator: (value) => _validator.validatePassword(value, _data),
           ),
           PasswordRetypeField(
-            password: _data.password,
+            autovalidate: false,
+            onChange: (String value) {
+              _data.passwordConfirm = value;
+            },
+            validator: (value) =>
+                _validator.validatePasswordConfirm(value, _data),
             // focusNode: _reviewFocus,
           ),
           SizedBox(height: 10),

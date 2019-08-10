@@ -68,7 +68,7 @@ class CustomerBloc extends Bloc<CustomerEvent, CustomerState> {
 
       yield CustomerLoaded(customer);
     } catch (error) {
-      yield CustomerError(error);
+      yield CustomerError(_parseError(error));
     }
   }
 
@@ -87,7 +87,7 @@ class CustomerBloc extends Bloc<CustomerEvent, CustomerState> {
 
       yield CustomerLoaded(customer);
     } catch (error) {
-      yield CustomerError(error);
+      yield CustomerError(_parseError(error));
     }
   }
 
@@ -99,24 +99,36 @@ class CustomerBloc extends Bloc<CustomerEvent, CustomerState> {
 
       yield CustomerLoaded(customer);
     } catch (error) {
-      yield CustomerError(error);
+      yield CustomerError(_parseError(error));
     }
   }
 
   Stream<CustomerState> _signIn(SignIn event) async* {
     try {
       yield CustomerSigningIn();
-      final CustomerResponse response = await this.customerRepository.signIn(
-            event.email,
-            event.password,
-          );
+      final CustomerResponse response = await customerRepository.signIn(
+        event.email,
+        event.password,
+      );
 
       authBloc.dispatch(SignedIn(accessToken: response.accessToken));
 
       yield CustomerLoaded(response.customer);
     } catch (error) {
-      yield CustomerError(error);
+      yield CustomerError(_parseError(error));
     }
+  }
+
+  _parseError(Object error) {
+    if (error is StringResponse) {
+      final Map<String, dynamic> body = jsonDecode(error.body);
+
+      if (body['error'] != null && body['error']['message'] != null) {
+        return body['error']['message'];
+      }
+    }
+
+    return error.toString();
   }
 
   Stream<CustomerState> _signUp(SignUp event) async* {
@@ -133,7 +145,7 @@ class CustomerBloc extends Bloc<CustomerEvent, CustomerState> {
 
       yield CustomerLoaded(response.customer);
     } catch (error) {
-      yield CustomerError(error);
+      yield CustomerError(_parseError(error));
     }
   }
 

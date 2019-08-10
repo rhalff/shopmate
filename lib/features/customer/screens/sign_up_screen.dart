@@ -30,20 +30,19 @@ class _SignUpScreenState extends State<SignUpScreen> {
       child: BlocBuilder(
         bloc: _customerBloc,
         builder: (BuildContext context, CustomerState state) {
+          String error;
           if (state is CustomerSigningUp) {
             return CustomerPage(
               title: 'Signing up...',
               child: CircularProgressIndicator(),
             );
           } else if (state is CustomerError) {
-            return ErrorContainer(
-              error: state.error.toString(),
-            );
+            error = state.error;
           }
 
           return CustomerPage(
             title: 'Sign Up',
-            child: SignUpForm(),
+            child: SignUpForm(error: error),
           );
         },
       ),

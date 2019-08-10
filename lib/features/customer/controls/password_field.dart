@@ -6,8 +6,10 @@ class PasswordField extends StatelessWidget {
   final FormFieldValidator<String> validator;
   final ValueChanged<String> onChange;
   final String placeholder;
+  final bool autovalidate;
   PasswordField({
     Key key,
+    this.autovalidate = true,
     this.focusNode,
     this.onSaved,
     this.placeholder,
@@ -17,10 +19,11 @@ class PasswordField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomerFormField(
+      autovalidate: autovalidate,
       obscureText: true,
       placeholder: placeholder ?? 'Password',
       textAlign: TextAlign.center,
-      validator: validator ?? _validatePassword,
+      validator: validator,
       focusNode: focusNode,
       inputFormatters: <TextInputFormatter>[
         BlacklistingTextInputFormatter(RegExp(' ')),
@@ -28,13 +31,5 @@ class PasswordField extends StatelessWidget {
       onChange: onChange,
       onSaved: onSaved,
     );
-  }
-
-  String _validatePassword(String value) {
-    if (value.length < 8) {
-      return 'The Password must be at least 8 characters.';
-    }
-
-    return null;
   }
 }
