@@ -120,7 +120,7 @@ class ProductInfoLabel extends StatelessWidget {
       child: Text(
         label,
         style: theme.textTheme.display3.copyWith(
-          color: TypographyColors[2],
+          color: typographyColors[2],
         ),
       ),
     );

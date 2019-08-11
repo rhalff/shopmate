@@ -22,7 +22,7 @@ class ShippingLoaded extends ShippingState {
 }
 
 class ShippingError extends ShippingState {
-  final Error error;
+  final Object error;
 
   ShippingError(this.error) : super([error]);
 

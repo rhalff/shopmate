@@ -48,14 +48,15 @@ abstract class _$CategoriesApiClient implements ApiClient {
     return req.go(throwOnErr: true).map(decodeOne);
   }
 
-  Future<Object> getCategories(String order, int page, int limit) async {
+  Future<List<Category>> getCategories(
+      String order, int page, int limit) async {
     var req = base.get
         .path(basePath)
         .path("/")
         .query("order", order)
         .query("page", page)
         .query("limit", limit);
-    return req.go(throwOnErr: true).map(decodeOne);
+    return req.go(throwOnErr: true).map(decodeList);
   }
 
   Future<List<Category>> getCategoriesByDepartmentId(int departmentId) async {

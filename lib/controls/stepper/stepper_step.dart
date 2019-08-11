@@ -12,7 +12,7 @@ class StepperStep extends StatelessWidget {
     this.strokeWidth = 10,
     this.color = Colors.red,
     this.alignment = TextAlign.left,
-    this.stepState = StepperState.Uncompleted,
+    this.stepState = StepperState.uncompleted,
     this.label,
   });
   @override
@@ -39,8 +39,8 @@ class StepperStep extends StatelessWidget {
   }
 
   Color _getTextColor() {
-    return stepState == StepperState.Completed ||
-            stepState == StepperState.Current
+    return stepState == StepperState.completed ||
+            stepState == StepperState.current
         ? color
         : null;
   }

@@ -22,7 +22,7 @@ class OrderLoaded extends OrderState {
 }
 
 class OrderError extends OrderState {
-  final Error error;
+  final Object error;
 
   OrderError(this.error) : super([error]);
 

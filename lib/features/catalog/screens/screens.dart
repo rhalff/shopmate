@@ -11,7 +11,6 @@ import '../../../shop_layout.dart';
 import '../blocs/blocs.dart';
 import '../models/models.dart';
 import '../pages/pages.dart';
-import '../widgets/widgets.dart';
 
 part 'catalog_screen.dart';
 part 'product_screen.dart';

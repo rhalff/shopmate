@@ -42,16 +42,16 @@ class StepperPainter extends CustomPainter {
     _drawLine(canvas, size);
     canvas.drawCircle(position, radius + 4, _paint2);
     _paint.color =
-        stepState == StepperState.Uncompleted ? inactiveColor : color;
+        stepState == StepperState.uncompleted ? inactiveColor : color;
     canvas.drawCircle(position, radius, _paint);
   }
 
   void _drawLine(Canvas canvas, Size size) {
-    if (stepState == StepperState.Completed ||
-        (stepState == StepperState.Current && alignment == TextAlign.right)) {
+    if (stepState == StepperState.completed ||
+        (stepState == StepperState.current && alignment == TextAlign.right)) {
       _linePaint.color = color;
-    } else if (stepState == StepperState.Uncompleted ||
-        (stepState == StepperState.Current && alignment == TextAlign.left)) {
+    } else if (stepState == StepperState.uncompleted ||
+        (stepState == StepperState.current && alignment == TextAlign.left)) {
       _linePaint.color = inactiveColor;
     } else if (alignment == TextAlign.right) {
       _linePaint.color = color;
@@ -65,7 +65,7 @@ class StepperPainter extends CustomPainter {
       _linePaint,
     );
 
-    if (stepState == StepperState.Current && alignment == TextAlign.center) {
+    if (stepState == StepperState.current && alignment == TextAlign.center) {
       _linePaint.color = color;
       canvas.drawLine(
         Offset.zero,

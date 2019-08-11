@@ -10,12 +10,9 @@ class _CatalogScreenState extends State<CatalogScreen> {
   List<Category> categories = [];
   List<Product> products = [];
   ProductsBloc _productsBloc;
-  DepartmentsBloc _departmentsBloc;
   @override
   void initState() {
     super.initState();
-
-    _departmentsBloc = BlocProvider.of<DepartmentsBloc>(context);
 
     _productsBloc = BlocProvider.of<ProductsBloc>(context)
       ..dispatch(LoadProducts());
@@ -44,38 +41,6 @@ class _CatalogScreenState extends State<CatalogScreen> {
           );
         },
       ),
-    );
-  }
-
-  Widget _buildLinkItems() {
-    return BlocBuilder(
-      bloc: _departmentsBloc,
-      // File issue to add @required, so it's filled automatically.
-      builder: (
-        BuildContext context,
-        DepartmentsState state,
-      ) {
-        if (state is DepartmentsLoaded) {
-          final items = <LinkItem>[
-            const LinkItem(
-              title: 'Home',
-              route: '/',
-            ),
-            ...state.departments.map(
-              (department) => LinkItem(
-                title: department.name,
-                route: '/categories/${department.name}',
-              ),
-            ),
-          ];
-
-          return BreadCrumbs(
-            items: items,
-          );
-        }
-
-        return Container();
-      },
     );
   }
 }

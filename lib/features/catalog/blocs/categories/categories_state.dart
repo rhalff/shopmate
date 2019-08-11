@@ -28,7 +28,7 @@ class CategoriesLoaded extends CategoriesState {
 }
 
 class CategoriesError extends CategoriesState {
-  final Error error;
+  final Object error;
 
   CategoriesError(this.error) : super([error]);
 

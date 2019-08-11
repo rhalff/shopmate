@@ -1,3 +1,3 @@
 part of controls;
 
-enum StepperState { Completed, Current, Uncompleted }
+enum StepperState { completed, current, uncompleted }

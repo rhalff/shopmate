@@ -10,7 +10,7 @@ class ShippingRegionRepository {
 
   Future<List<ShippingRegion>> getShippingRegions() async {
     try {
-      return cache.read('shippingRegions');
+      return cache.read('shippingRegions') as List<ShippingRegion>;
     } catch (_) {
       final shippingRegions = shippingApi.getShippingRegions();
 

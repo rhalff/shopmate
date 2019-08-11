@@ -22,7 +22,7 @@ class DepartmentsLoaded extends DepartmentsState {
 }
 
 class DepartmentsError extends DepartmentsState {
-  final Error error;
+  final Object error;
 
   DepartmentsError(this.error) : super([error]);
 

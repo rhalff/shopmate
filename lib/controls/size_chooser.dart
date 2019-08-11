@@ -25,7 +25,7 @@ class SizeChooser extends StatelessWidget {
     final theme = Theme.of(context);
     return Row(
       children: List.generate(sizes.length, (index) {
-        final color = index == selectedIndex ? Colors.pink : DocumentColors[4];
+        final color = index == selectedIndex ? Colors.pink : documentColors[4];
         final fontColor =
             index == selectedIndex ? Colors.white : Colors.black38;
 

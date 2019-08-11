@@ -28,7 +28,7 @@ class CartLoaded extends CartState {
 }
 
 class CartError extends CartState {
-  final Error error;
+  final Object error;
 
   CartError(this.error) : super([error]);
 

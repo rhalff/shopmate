@@ -13,7 +13,7 @@ class TaxRepository {
 
   Future<List<TaxType>> getTaxTypes() async {
     try {
-      return cache.read('taxTypes');
+      return cache.read('taxTypes') as List<TaxType>;
     } catch (_) {
       final taxTypes = taxApi.getTaxTypes();
 

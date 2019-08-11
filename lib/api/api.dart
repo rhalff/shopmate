@@ -45,14 +45,15 @@ class TuringApi {
     bool overrideInterceptors = false,
     String baseUrl,
   }) {
-    _baseRoute = Route(baseUrl ?? basePath).withClient(
-      CustomClient(
-        HttpClient()
-          ..connectionTimeout = const Duration(seconds: 5)
-          ..idleTimeout = const Duration(seconds: 2)
-          ..userAgent = 'ShopMate App',
-      )..timeout = const Duration(seconds: 20),
-    );
+    _baseRoute = Route(baseUrl ?? basePath)
+      ..withClient(
+        CustomClient(
+          HttpClient()
+            ..connectionTimeout = const Duration(seconds: 5)
+            ..idleTimeout = const Duration(seconds: 2)
+            ..userAgent = 'ShopMate App',
+        )..timeout = const Duration(seconds: 20),
+      );
     if (interceptors == null) {
       this.interceptors = _defaultInterceptors;
     } else if (overrideInterceptors) {
@@ -61,9 +62,9 @@ class TuringApi {
       this.interceptors = List.from(_defaultInterceptors)..addAll(interceptors);
     }
 
-    this.interceptors.forEach((interceptor) {
+    for (var interceptor in this.interceptors) {
       _baseRoute.before(interceptor.before).after(interceptor.after);
-    });
+    }
   }
 
   void setOAuthToken(String name, String token) {

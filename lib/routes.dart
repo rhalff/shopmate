@@ -120,8 +120,8 @@ RouteFactory routes({
       type: arguments['transition'] as PageTransitionType ??
           PageTransitionType.rightToLeft,
       alignment: arguments['alignment'] as Alignment,
-      duration:
-          arguments['duration'] as Duration ?? Duration(milliseconds: 400),
+      duration: arguments['duration'] as Duration ??
+          const Duration(milliseconds: 400),
     );
   };
 }

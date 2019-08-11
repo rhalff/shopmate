@@ -113,11 +113,13 @@ class _SignUpFormState extends State<SignUpForm> {
             children: <Widget>[
               const Text('Already a member?'),
               const SizedBox(width: 15),
-              NavLink(LinkItem(
-                title: 'Sign In',
-                route: SignInScreen.route,
-                replace: true,
-              )),
+              NavLink(
+                const LinkItem(
+                  title: 'Sign In',
+                  route: SignInScreen.route,
+                  replace: true,
+                ),
+              ),
             ],
           ),
           const SizedBox(height: 25),

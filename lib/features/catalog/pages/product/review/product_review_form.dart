@@ -51,7 +51,7 @@ class _ProductReviewFormState extends State<ProductReviewForm> {
       child: Container(
         padding: const EdgeInsets.only(top: 15),
         child: NavLink(
-          LinkItem(
+          const LinkItem(
             title: 'Please login first',
             route: SignInScreen.route,
             replace: true,

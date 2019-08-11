@@ -166,7 +166,7 @@ class CircularButton extends StatelessWidget {
       child: child,
       shape: CircleBorder(),
       elevation: 0,
-      fillColor: DocumentColors[7],
+      fillColor: documentColors[7],
       constraints: constraints,
     );
   }

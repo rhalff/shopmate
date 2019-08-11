@@ -25,12 +25,12 @@ class Stepper extends StatelessWidget {
       final step = steps[index];
 
       var alignment = TextAlign.center;
-      var stepperState = StepperState.Uncompleted;
+      var stepperState = StepperState.uncompleted;
 
       if (index < currentStep) {
-        stepperState = StepperState.Completed;
+        stepperState = StepperState.completed;
       } else if (index == currentStep) {
-        stepperState = StepperState.Current;
+        stepperState = StepperState.current;
       }
 
       if (step == steps.first) {

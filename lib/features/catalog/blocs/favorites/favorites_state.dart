@@ -26,7 +26,7 @@ class FavoritesLoaded extends FavoritesState {
 }
 
 class FavoritesError extends FavoritesState {
-  final Error error;
+  final Object error;
 
   FavoritesError(this.error) : super([error]);
 

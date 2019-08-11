@@ -36,7 +36,7 @@ class CartTable extends StatelessWidget {
           child: Header3(
             'Item',
             style: TextStyle(
-              color: TypographyColors[2],
+              color: typographyColors[2],
             ),
           ),
         ),
@@ -46,7 +46,7 @@ class CartTable extends StatelessWidget {
             'Size',
             textAlign: TextAlign.center,
             style: TextStyle(
-              color: TypographyColors[2],
+              color: typographyColors[2],
             ),
           ),
         ),
@@ -56,7 +56,7 @@ class CartTable extends StatelessWidget {
             'Quantity',
             textAlign: TextAlign.center,
             style: TextStyle(
-              color: TypographyColors[2],
+              color: typographyColors[2],
             ),
           ),
         ),
@@ -66,7 +66,7 @@ class CartTable extends StatelessWidget {
             'Price',
             textAlign: TextAlign.right,
             style: TextStyle(
-              color: TypographyColors[2],
+              color: typographyColors[2],
             ),
           ),
         ),

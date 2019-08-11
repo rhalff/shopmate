@@ -92,7 +92,7 @@ class _SignInFormState extends State<SignInForm> {
             runSpacing: 20,
             children: <Widget>[
               Link(
-                LinkItem(
+                const LinkItem(
                   title: 'Forgot password',
                   route: ForgotPasswordScreen.route,
                   replace: true,
@@ -100,7 +100,7 @@ class _SignInFormState extends State<SignInForm> {
               ),
               const SizedBox(width: 15),
               NavLink(
-                LinkItem(
+                const LinkItem(
                   title: 'Have an account',
                   route: SignUpScreen.route,
                   replace: true,

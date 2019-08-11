@@ -28,11 +28,10 @@ class _CartIconButtonState extends State<CartIconButton> {
               tooltip: 'Show shopping cart',
               onPressed: _onPressed,
             ),
-            Positioned(
+            const Positioned(
               right: 4,
               top: 10,
               child: SizedBox(
-                // padding: EdgeInsets.all(2),
                 width: 14,
                 height: 14,
                 child: CircularProgressIndicator(

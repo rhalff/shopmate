@@ -21,7 +21,7 @@ class ProductRow extends StatelessWidget {
             focusColor: Colors.transparent,
             highlightColor: Colors.transparent,
             hoverColor: Colors.transparent,
-            splashColor: DocumentColors[4],
+            splashColor: documentColors[4],
             onTap: () => _showProductDetail(context, product),
             child: Row(
               mainAxisSize: MainAxisSize.max,

@@ -19,7 +19,7 @@ class Applicationenticated extends ApplicationState {
 }
 
 class ApplicationError extends ApplicationState {
-  final Error error;
+  final Object error;
 
   ApplicationError(this.error) : super([error]);
 

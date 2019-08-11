@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-const TypographyColors = [
+const typographyColors = [
   Color(0xFF2E2E2E),
   Color(0xFF6C6C6C),
   Color(0xFFB4B4B4),
@@ -8,7 +8,7 @@ const TypographyColors = [
   Colors.white,
 ];
 
-const DocumentColors = [
+const documentColors = [
   Color(0xFF2E2E2E),
   Color(0xFFF62F5E),
   Color(0xFF6EB2FB),
@@ -22,10 +22,10 @@ const DocumentColors = [
 ThemeData lightTheme = ThemeData(
   brightness: Brightness.light,
   primaryColor: Colors.lightBlue[800],
-  accentColor: DocumentColors[1],
+  accentColor: documentColors[1],
   fontFamily: 'OpenSans',
   backgroundColor: Colors.pink,
-  canvasColor: DocumentColors[4],
+  canvasColor: documentColors[4],
   primarySwatch: Colors.teal,
   textTheme: TextTheme(
     //
@@ -33,7 +33,7 @@ ThemeData lightTheme = ThemeData(
       fontSize: 72.0,
       fontFamily: 'PlayfairDisplay',
       fontWeight: FontWeight.bold,
-      color: TypographyColors[0],
+      color: typographyColors[0],
     ),
 
     //
@@ -41,7 +41,7 @@ ThemeData lightTheme = ThemeData(
       fontSize: 64.0,
       fontFamily: 'PlayfairDisplay',
       fontWeight: FontWeight.bold,
-      color: TypographyColors[0],
+      color: typographyColors[0],
     ),
 
     //
@@ -49,7 +49,7 @@ ThemeData lightTheme = ThemeData(
       fontSize: 48.0,
       fontFamily: 'PlayfairDisplay',
       fontWeight: FontWeight.bold,
-      color: TypographyColors[0],
+      color: typographyColors[0],
     ),
 
     //
@@ -57,7 +57,7 @@ ThemeData lightTheme = ThemeData(
       fontSize: 24.0,
       fontFamily: 'PlayfairDisplay',
       fontWeight: FontWeight.bold,
-      color: TypographyColors[0],
+      color: typographyColors[0],
     ),
 
     // H1
@@ -65,7 +65,7 @@ ThemeData lightTheme = ThemeData(
       fontSize: 48.0,
       fontFamily: 'PlayfairDisplay',
       fontWeight: FontWeight.bold,
-      color: TypographyColors[0],
+      color: typographyColors[0],
     ),
 
     // H2
@@ -73,7 +73,7 @@ ThemeData lightTheme = ThemeData(
       fontSize: 24.0,
       fontFamily: 'PlayfairDisplay',
       fontWeight: FontWeight.bold,
-      color: TypographyColors[0],
+      color: typographyColors[0],
     ),
 
     // H3
@@ -81,7 +81,7 @@ ThemeData lightTheme = ThemeData(
       fontSize: 16.0,
       fontFamily: 'PlayfairDisplay',
       fontWeight: FontWeight.bold,
-      color: TypographyColors[0],
+      color: typographyColors[0],
     ),
 
     // Topbar
@@ -89,7 +89,7 @@ ThemeData lightTheme = ThemeData(
       fontSize: 15.0,
       fontFamily: 'Montserrat',
       fontWeight: FontWeight.bold,
-      color: TypographyColors[0],
+      color: typographyColors[0],
     ),
 
     // Body Normal
@@ -97,7 +97,7 @@ ThemeData lightTheme = ThemeData(
       fontSize: 16.0,
       fontFamily: 'OpenSans',
       fontWeight: FontWeight.w300,
-      color: TypographyColors[1],
+      color: typographyColors[1],
     ),
 
     // Body Small
@@ -105,7 +105,7 @@ ThemeData lightTheme = ThemeData(
       fontSize: 12.0,
       fontFamily: 'OpenSans',
       fontWeight: FontWeight.w300,
-      color: TypographyColors[1],
+      color: typographyColors[1],
     ),
 
     // button: TextStyle(fontSize: 14.0, fontFamily: 'Hind'),

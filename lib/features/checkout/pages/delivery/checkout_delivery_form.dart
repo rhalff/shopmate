@@ -39,7 +39,7 @@ class CheckoutDeliveryFormState extends State<CheckoutDeliveryForm> {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Divider(),
+          const Divider(),
           SideBySide(
             left: CheckoutFormField(
               label: 'First Name *',

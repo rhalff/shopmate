@@ -22,7 +22,7 @@ class ProductLoaded extends ProductState {
 }
 
 class ProductError extends ProductState {
-  final Error error;
+  final Object error;
 
   ProductError(this.error) : super([error]);
 

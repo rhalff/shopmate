@@ -38,12 +38,12 @@ abstract class _$ShoppingCartApiClient implements ApiClient {
     return req.go(throwOnErr: true).map(decodeOne);
   }
 
-  Future<Object> getSaved(String cartId) async {
+  Future<List<Favorite>> getSaved(String cartId) async {
     var req = base.get
         .path(basePath)
         .path("/getSaved/:cart_id")
         .pathParams("cart_id", cartId);
-    return req.go(throwOnErr: true).map(decodeOne);
+    return req.go(throwOnErr: true).map(decodeList);
   }
 
   Future<void> moveToCart(int itemId) async {
