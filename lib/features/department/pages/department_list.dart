@@ -15,7 +15,7 @@ class DepartmentList extends StatelessWidget {
         return Column(
           children: <Widget>[
             DepartmentRow(product: product),
-            Divider(height: 1),
+            const Divider(height: 1),
           ],
         );
       },

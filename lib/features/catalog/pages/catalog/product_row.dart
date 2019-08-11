@@ -35,7 +35,7 @@ class ProductRow extends StatelessWidget {
                 Flexible(
                   fit: FlexFit.tight,
                   child: Container(
-                    margin: EdgeInsets.only(left: 30),
+                    margin: const EdgeInsets.only(left: 30),
                     child: Container(
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -70,7 +70,7 @@ class ProductRow extends StatelessWidget {
     );
   }
 
-  _showProductDetail(BuildContext context, Product product) {
+  void _showProductDetail(BuildContext context, Product product) {
     Navigator.of(context).pushNamed(
       ProductScreen.route,
       arguments: {'product': product},

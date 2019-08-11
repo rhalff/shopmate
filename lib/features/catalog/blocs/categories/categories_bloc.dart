@@ -20,8 +20,7 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
   Stream<CategoriesState> _loadCategories(LoadCategories event) async* {
     try {
       yield CategoriesLoading();
-      final List<Category> categories =
-          await this.categoryRepository.getCategories();
+      final categories = await categoryRepository.getCategories();
 
       yield CategoriesLoaded(categories);
     } catch (error) {

@@ -40,8 +40,8 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
   Stream<ProductState> _loadProduct(LoadProduct event) async* {
     try {
       yield ProductLoading();
-      final FullProductDetails productDetails =
-          await this.productRepository.getFullProductDetails(event.productId);
+      final productDetails =
+          await productRepository.getFullProductDetails(event.productId);
 
       yield ProductLoaded(productDetails);
     } catch (error) {

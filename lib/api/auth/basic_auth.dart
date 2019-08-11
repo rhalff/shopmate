@@ -25,7 +25,7 @@ class BasicAuthInterceptor extends AuthInterceptor {
         break;
       }
     }
-    return super.before(route);
+    super.before(route);
   }
 
   @override

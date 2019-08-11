@@ -14,7 +14,7 @@ class CustomerBloc extends Bloc<CustomerEvent, CustomerState> {
 
     _authBlocSubscription = authBloc.state.listen((state) {
       if (state is SignOut) {
-        this.dispatch(ClearCustomerData());
+        dispatch(ClearCustomerData());
       }
     });
   }
@@ -49,7 +49,7 @@ class CustomerBloc extends Bloc<CustomerEvent, CustomerState> {
 
   Stream<CustomerState> _loadCustomer(LoadCustomer event) async* {
     yield CustomerLoading();
-    final Customer customer = await this.customerRepository.getCustomer();
+    final customer = await customerRepository.getCustomer();
 
     yield CustomerLoaded(customer);
   }
@@ -57,14 +57,14 @@ class CustomerBloc extends Bloc<CustomerEvent, CustomerState> {
   Stream<CustomerState> _updateCustomer(UpdateCustomer event) async* {
     try {
       yield CustomerLoading();
-      final Customer customer = await this.customerRepository.updateCustomer(
-            event.profile.name,
-            event.profile.email,
-            event.profile.password,
-            event.profile.dayPhone,
-            event.profile.evePhone,
-            event.profile.mobPhone,
-          );
+      final customer = await customerRepository.updateCustomer(
+        event.profile.name,
+        event.profile.email,
+        event.profile.password,
+        event.profile.dayPhone,
+        event.profile.evePhone,
+        event.profile.mobPhone,
+      );
 
       yield CustomerLoaded(customer);
     } catch (error) {
@@ -75,15 +75,15 @@ class CustomerBloc extends Bloc<CustomerEvent, CustomerState> {
   Stream<CustomerState> _updateAddress(UpdateAddress event) async* {
     try {
       yield CustomerLoading();
-      final Customer customer = await this.customerRepository.updateAddress(
-            event.address.address1,
-            event.address.address2,
-            event.address.city,
-            event.address.region,
-            event.address.postalCode,
-            event.address.country,
-            event.address.shippingRegionId,
-          );
+      final customer = await customerRepository.updateAddress(
+        event.address.address1,
+        event.address.address2,
+        event.address.city,
+        event.address.region,
+        event.address.postalCode,
+        event.address.country,
+        event.address.shippingRegionId,
+      );
 
       yield CustomerLoaded(customer);
     } catch (error) {
@@ -94,8 +94,8 @@ class CustomerBloc extends Bloc<CustomerEvent, CustomerState> {
   Stream<CustomerState> _updateCreditCard(UpdateCreditCard event) async* {
     try {
       yield CustomerLoading();
-      final Customer customer =
-          await this.customerRepository.updateCreditCard(event.creditCard);
+      final customer =
+          await customerRepository.updateCreditCard(event.creditCard);
 
       yield CustomerLoaded(customer);
     } catch (error) {
@@ -106,7 +106,7 @@ class CustomerBloc extends Bloc<CustomerEvent, CustomerState> {
   Stream<CustomerState> _signIn(SignIn event) async* {
     try {
       yield CustomerSigningIn();
-      final CustomerResponse response = await customerRepository.signIn(
+      final response = await customerRepository.signIn(
         event.email,
         event.password,
       );
@@ -119,12 +119,12 @@ class CustomerBloc extends Bloc<CustomerEvent, CustomerState> {
     }
   }
 
-  _parseError(Object error) {
+  String _parseError(Object error) {
     if (error is StringResponse) {
-      final Map<String, dynamic> body = jsonDecode(error.body);
+      final body = jsonDecode(error.body) as Map<String, dynamic>;
 
       if (body['error'] != null && body['error']['message'] != null) {
-        return body['error']['message'];
+        return body['error']['message'] as String;
       }
     }
 
@@ -135,11 +135,11 @@ class CustomerBloc extends Bloc<CustomerEvent, CustomerState> {
     try {
       yield CustomerSigningUp();
 
-      final CustomerResponse response = await this.customerRepository.signUp(
-            event.email,
-            event.password,
-            event.name,
-          );
+      final response = await customerRepository.signUp(
+        event.email,
+        event.password,
+        event.name,
+      );
 
       authBloc.dispatch(SignedIn(accessToken: response.accessToken));
 

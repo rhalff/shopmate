@@ -26,12 +26,12 @@ class _CartScreenState extends State<CartScreen> {
           return _build(context, state);
         }
 
-        return CircularProgressIndicator();
+        return const CircularProgressIndicator();
       },
     );
   }
 
-  _build(BuildContext context, CartState state) {
+  Widget _build(BuildContext context, CartLoaded state) {
     final isLargeScreen = MediaQuery.of(context).size.width > 600;
 
     return Scaffold(
@@ -74,7 +74,7 @@ class _CartScreenState extends State<CartScreen> {
     );
   }
 
-  _buildFooterButtons(CartLoaded state) {
+  List<Widget> _buildFooterButtons(CartLoaded state) {
     final theme = Theme.of(context);
 
     return <Widget>[
@@ -95,7 +95,7 @@ class _CartScreenState extends State<CartScreen> {
     ];
   }
 
-  _buildColumn(CartLoaded state) {
+  Widget _buildColumn(CartLoaded state) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,

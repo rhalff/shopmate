@@ -48,7 +48,7 @@ class _ProductScreenState extends State<ProductScreen> {
                   }
 
                   return Center(
-                    child: CircularProgressIndicator(),
+                    child: const CircularProgressIndicator(),
                   );
                 },
               ),
@@ -59,7 +59,7 @@ class _ProductScreenState extends State<ProductScreen> {
     );
   }
 
-  _buildProductPage(FullProductDetails productDetails) {
+  Widget _buildProductPage(FullProductDetails productDetails) {
     return Column(
       children: <Widget>[
         /*

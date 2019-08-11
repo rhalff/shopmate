@@ -40,9 +40,9 @@ class CustomerPage extends StatelessWidget {
                 Center(
                   child: Column(
                     children: <Widget>[
-                      SizedBox(height: 50),
+                      const SizedBox(height: 50),
                       if (title != null) Header(title),
-                      SizedBox(height: 50),
+                      const SizedBox(height: 50),
                       child,
                     ],
                   ),

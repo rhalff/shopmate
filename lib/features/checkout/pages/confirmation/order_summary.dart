@@ -12,11 +12,11 @@ class OrderSummary extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Header3('Order summary'),
-          SizedBox(height: 15),
+          const SizedBox(height: 15),
           Column(
             children: <Widget>[
               _buildHeader(),
-              SizedBox(height: 15),
+              const SizedBox(height: 15),
               ..._buildRows(context),
             ],
           )
@@ -33,7 +33,7 @@ class OrderSummary extends StatelessWidget {
           child: Header3(
             'Item',
             style: TextStyle(
-              color: Color(0xFFB4B4B4),
+              color: const Color(0xFFB4B4B4),
             ),
           ),
         ),
@@ -44,7 +44,7 @@ class OrderSummary extends StatelessWidget {
               'Qty',
               textAlign: TextAlign.right,
               style: TextStyle(
-                color: Color(0xFFB4B4B4),
+                color: const Color(0xFFB4B4B4),
               ),
             ),
           ),
@@ -54,7 +54,7 @@ class OrderSummary extends StatelessWidget {
             'Price',
             textAlign: TextAlign.right,
             style: TextStyle(
-              color: Color(0xFFB4B4B4),
+              color: const Color(0xFFB4B4B4),
             ),
           ),
         ),
@@ -62,7 +62,7 @@ class OrderSummary extends StatelessWidget {
     );
   }
 
-  List<Widget> _buildRows(context) {
+  List<Widget> _buildRows(BuildContext context) {
     return mapWithIndex<CartWithProduct, Widget>(cart, (
       CartWithProduct product,
       int index,
@@ -115,7 +115,7 @@ class OrderSummary extends StatelessWidget {
 
     return Container(
         decoration: BoxDecoration(
-          color: odd ? Colors.transparent : Color(0xFFF7F7F7),
+          color: odd ? Colors.transparent : const Color(0xFFF7F7F7),
         ),
         child: Padding(
           padding: const EdgeInsets.all(8.0),

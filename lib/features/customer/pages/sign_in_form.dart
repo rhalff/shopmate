@@ -31,8 +31,8 @@ class _SignInFormState extends State<SignInForm> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final _data = _SignInData();
 
-  FocusNode _emailFocus = FocusNode();
-  FocusNode _passwordFocus = FocusNode();
+  final FocusNode _emailFocus = FocusNode();
+  final FocusNode _passwordFocus = FocusNode();
 
   CustomerBloc _customerBloc;
   SignInDataValidator _validator;
@@ -85,7 +85,7 @@ class _SignInFormState extends State<SignInForm> {
             text: 'Sign In',
             onPressed: _signIn,
           ),
-          SizedBox(height: 25),
+          const SizedBox(height: 25),
           Wrap(
             // mainAxisSize: MainAxisSize.min,
             direction: Axis.horizontal,
@@ -98,7 +98,7 @@ class _SignInFormState extends State<SignInForm> {
                   replace: true,
                 ),
               ),
-              SizedBox(width: 15),
+              const SizedBox(width: 15),
               NavLink(
                 LinkItem(
                   title: 'Have an account',
@@ -108,14 +108,14 @@ class _SignInFormState extends State<SignInForm> {
               ),
             ],
           ),
-          SizedBox(height: 25),
+          const SizedBox(height: 25),
         ],
       ),
     );
   }
 
   void _signIn() {
-    if (this._formKey.currentState.validate()) {
+    if (_formKey.currentState.validate()) {
       _formKey.currentState.save();
 
       _customerBloc.dispatch(

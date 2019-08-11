@@ -13,17 +13,16 @@ class CartRepository {
 
   Future<List<CartWithProduct>> getShoppingCart() async {
     if (_currentCart == null) {
-      SharedPreferences sharedPreferences =
-          await SharedPreferences.getInstance();
+      final sharedPreferences = await SharedPreferences.getInstance();
 
       cartId = sharedPreferences.getString('cartId');
 
       if (cartId == null) {
-        CartId result = await shoppingCartApi.generateUniqueId();
+        final result = await shoppingCartApi.generateUniqueId();
 
         cartId = result.cartId;
 
-        sharedPreferences.setString('cartId', cartId);
+        await sharedPreferences.setString('cartId', cartId);
       }
     }
 
@@ -32,7 +31,7 @@ class CartRepository {
     return _currentCart;
   }
 
-  Future<void> _refreshCart(id) async {
+  Future<void> _refreshCart(String id) async {
     _currentCart = await shoppingCartApi.getCart(id);
   }
 
@@ -50,7 +49,7 @@ class CartRepository {
       await getShoppingCart();
     }
 
-    final String attributes = [size, color].join(', ');
+    final attributes = [size, color].join(', ');
 
     _currentCart = await shoppingCartApi.addProduct(
       cartId,
@@ -104,9 +103,7 @@ class CartRepository {
   Future<List<CartWithProduct>> emptyCart() async {
     await shoppingCartApi.emptyCart(cartId);
 
-    _currentCart = [];
-
-    return _currentCart;
+    return _currentCart = [];
   }
 
   Future<List<Favorite>> addToFavorites(int productId) async {

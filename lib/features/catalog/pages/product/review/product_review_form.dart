@@ -17,10 +17,10 @@ class ProductReviewForm extends StatefulWidget {
 
 class _ProductReviewFormState extends State<ProductReviewForm> {
   final _formKey = GlobalKey<FormState>();
-  final FocusNode _nickNameFocus = new FocusNode();
-  final FocusNode _reviewFocus = new FocusNode();
+  final FocusNode _nickNameFocus = FocusNode();
+  final FocusNode _reviewFocus = FocusNode();
 
-  ProductReviewFormData _formData = ProductReviewFormData();
+  final ProductReviewFormData _formData = ProductReviewFormData();
 
   ReviewsBloc _reviewsBloc;
   CustomerBloc _customerBloc;
@@ -82,7 +82,6 @@ class _ProductReviewFormState extends State<ProductReviewForm> {
             key: _formKey,
             child: Column(
               children: <Widget>[
-                Text(widget.productId.toString()),
                 ProductReviewFormField(
                     enabled: false,
                     label: 'Name',
@@ -131,13 +130,13 @@ class _ProductReviewFormState extends State<ProductReviewForm> {
     );
   }
 
-  _setRating(int rating) {
+  void _setRating(int rating) {
     setState(() {
       _formData.rating = rating;
     });
   }
 
-  _fieldFocusChange(
+  void _fieldFocusChange(
     BuildContext context,
     FocusNode currentFocus,
     FocusNode nextFocus,
@@ -163,7 +162,7 @@ class _ProductReviewFormState extends State<ProductReviewForm> {
   }
 
   void _submitReview() {
-    if (this._formKey.currentState.validate()) {
+    if (_formKey.currentState.validate()) {
       _formKey.currentState.save();
 
       _reviewsBloc.dispatch(

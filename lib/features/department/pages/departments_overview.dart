@@ -11,8 +11,8 @@ class DepartmentsOverview extends StatelessWidget {
     final theme = Theme.of(context);
 
     return Container(
-      padding: EdgeInsets.all(30),
-      margin: EdgeInsets.all(15),
+      padding: const EdgeInsets.all(30),
+      margin: const EdgeInsets.all(15),
       decoration: BoxDecoration(
         color: Colors.white,
         border: Border.all(
@@ -24,8 +24,8 @@ class DepartmentsOverview extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Text('Men Shirts & Tops', style: theme.textTheme.subtitle),
-          SizedBox(height: 8),
-          Divider(height: 15),
+          const SizedBox(height: 8),
+          const Divider(height: 15),
           Expanded(
             child: DepartmentList(
               products: products,

@@ -97,27 +97,27 @@ class CheckoutDeliveryFormState extends State<CheckoutDeliveryForm> {
           Row(
             children: <Widget>[
               Text('Country:', style: theme.textTheme.display3),
-              SizedBox(width: 4),
+              const SizedBox(width: 4),
               Text('Great Britain *', style: theme.textTheme.display3),
             ],
           ),
-          SizedBox(height: 18),
+          const SizedBox(height: 18),
           Row(
             children: <Widget>[
               Checkbox(
                 value: true,
                 onChanged: (bool value) {},
               ),
-              SizedBox(width: 4),
+              const SizedBox(width: 4),
               Text(
                 'My billing information is the same as my delivery information',
                 style: theme.textTheme.display3,
               ),
             ],
           ),
-          SizedBox(height: 24),
-          Line(height: 2),
-          SizedBox(height: 36),
+          const SizedBox(height: 24),
+          const Line(height: 2),
+          const SizedBox(height: 36),
           DeliveryOptions(
             value: widget.data.shipping,
             onChanged: (ShippingType value) {
@@ -131,15 +131,13 @@ class CheckoutDeliveryFormState extends State<CheckoutDeliveryForm> {
     );
   }
 
-  submit() {
-    if (this._deliveryFormKey.currentState.validate()) {
+  void submit() {
+    if (_deliveryFormKey.currentState.validate()) {
       _deliveryFormKey.currentState.save();
 
       setState(() {
         widget.onSubmit(widget.data);
       });
-    } else {
-      // ...
     }
   }
 }

@@ -7,7 +7,7 @@ class Footer3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(18),
+      padding: const EdgeInsets.all(18),
       // width: 900,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -22,11 +22,11 @@ class Footer3 extends StatelessWidget {
                     '1 800 2 000 000  ',
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
-                  Text('info@shopmate.com'),
+                  const Text('info@shopmate.com'),
                 ],
               ),
               Padding(
-                padding: EdgeInsets.all(15),
+                padding: const EdgeInsets.all(15),
                 child: socialIcons,
               )
             ],

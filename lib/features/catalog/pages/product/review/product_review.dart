@@ -42,7 +42,7 @@ class ProductReview extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Container(
-                margin: EdgeInsets.only(top: 8),
+                margin: const EdgeInsets.only(top: 8),
                 child: Text(
                   review.review ?? '',
                   maxLines: 5,

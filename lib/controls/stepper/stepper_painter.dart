@@ -46,7 +46,7 @@ class StepperPainter extends CustomPainter {
     canvas.drawCircle(position, radius, _paint);
   }
 
-  _drawLine(Canvas canvas, Size size) {
+  void _drawLine(Canvas canvas, Size size) {
     if (stepState == StepperState.Completed ||
         (stepState == StepperState.Current && alignment == TextAlign.right)) {
       _linePaint.color = color;
@@ -76,7 +76,7 @@ class StepperPainter extends CustomPainter {
   }
 
   Offset _getCirclePosition(Size size) {
-    double x = 0;
+    var x = 0.0;
     if (alignment == TextAlign.center) {
       x = size.width / 2;
     } else if (alignment == TextAlign.right) {

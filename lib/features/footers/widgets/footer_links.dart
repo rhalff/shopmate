@@ -14,7 +14,7 @@ class FooterLinks extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: EdgeInsets.only(bottom: 15),
+          padding: const EdgeInsets.only(bottom: 15),
           child: Text(
             title,
             textScaleFactor: 1.3,
@@ -25,12 +25,12 @@ class FooterLinks extends StatelessWidget {
     );
   }
 
-  _buildItems(BuildContext context) {
+  List<Widget> _buildItems(BuildContext context) {
     return items.map((item) {
       return GestureDetector(
         onTap: () => Navigator.of(context).pushNamed(item.route),
         child: Padding(
-          padding: EdgeInsets.only(bottom: 5),
+          padding: const EdgeInsets.only(bottom: 5),
           child: Text(
             item.title,
           ),

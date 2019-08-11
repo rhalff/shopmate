@@ -29,8 +29,7 @@ class CartBloc extends Bloc<CartEvent, CartState> {
 
   Stream<CartState> _loadCart() async* {
     try {
-      final List<CartWithProduct> cart =
-          await this.cartRepository.getShoppingCart();
+      final cart = await cartRepository.getShoppingCart();
 
       yield CartLoaded(cart);
     } catch (error) {
@@ -42,7 +41,7 @@ class CartBloc extends Bloc<CartEvent, CartState> {
     if (currentState is CartLoaded) {
       yield CartLoading();
 
-      final List<CartWithProduct> updatedCart = await cartRepository.addProduct(
+      final updatedCart = await cartRepository.addProduct(
         event.productId,
         event.size,
         event.color,
@@ -55,8 +54,7 @@ class CartBloc extends Bloc<CartEvent, CartState> {
 
   Stream<CartState> _removeFromCart(RemoveFromCart event) async* {
     if (currentState is CartLoaded) {
-      final List<CartWithProduct> updatedCart =
-          await cartRepository.removeProductItem(event.itemId);
+      final updatedCart = await cartRepository.removeProductItem(event.itemId);
 
       yield CartLoaded(updatedCart);
     }
@@ -64,7 +62,7 @@ class CartBloc extends Bloc<CartEvent, CartState> {
 
   Stream<CartState> _increaseCartItem(IncreaseCartItem event) async* {
     if (currentState is CartLoaded) {
-      final List<CartWithProduct> updatedCart =
+      final updatedCart =
           await cartRepository.increaseProductItem(event.itemId);
 
       yield CartLoaded(updatedCart);
@@ -73,7 +71,7 @@ class CartBloc extends Bloc<CartEvent, CartState> {
 
   Stream<CartState> _decreaseCartItem(DecreaseCartItem event) async* {
     if (currentState is CartLoaded) {
-      final List<CartWithProduct> updatedCart =
+      final updatedCart =
           await cartRepository.decreaseProductItem(event.itemId);
 
       yield CartLoaded(updatedCart);
@@ -82,8 +80,7 @@ class CartBloc extends Bloc<CartEvent, CartState> {
 
   Stream<CartState> clearCart() async* {
     if (currentState is CartLoaded) {
-      final List<CartWithProduct> updatedCart =
-          await cartRepository.emptyCart();
+      final updatedCart = await cartRepository.emptyCart();
       yield CartLoaded(updatedCart);
     }
   }

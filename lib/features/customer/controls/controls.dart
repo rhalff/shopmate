@@ -3,7 +3,6 @@ library customer.controls;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:validate/validate.dart';
 
 part 'customer_form_field.dart';
 part 'email_field.dart';

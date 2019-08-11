@@ -22,9 +22,9 @@ class CustomerRepository {
     final cacheKey = 'getCustomer()';
 
     try {
-      return cache.read(cacheKey);
+      return cache.read(cacheKey) as Customer;
     } catch (_) {
-      final Customer customer = await customersApi.getCustomer();
+      final customer = await customersApi.getCustomer();
 
       cache.upsert(cacheKey, customer);
 
@@ -40,7 +40,7 @@ class CustomerRepository {
     String evePhone,
     String mobPhone,
   ) async {
-    final Customer customer = await customersApi.updateCustomer(
+    final customer = await customersApi.updateCustomer(
       name,
       email,
       password,
@@ -63,7 +63,7 @@ class CustomerRepository {
     String country,
     int shippingRegionId,
   ) async {
-    final Customer customer = await customersApi.updateAddress(
+    final customer = await customersApi.updateAddress(
       address1,
       address2,
       city,
@@ -81,7 +81,7 @@ class CustomerRepository {
   Future<Customer> updateCreditCard(
     String creditCard,
   ) async {
-    final Customer customer = await customersApi.getCustomer();
+    final customer = await customersApi.getCustomer();
 
     cache.upsert(cacheKey, customer);
 

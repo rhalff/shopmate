@@ -13,9 +13,9 @@ class CategoryRepository {
     final cacheKey = 'getCategories()';
 
     try {
-      return cache.read(cacheKey);
+      return cache.read(cacheKey) as List<Category>;
     } catch (_) {
-      final List<Category> categoryResult =
+      final categoryResult =
           await categoriesApi.getCategories('name,ASC', 50, 30);
 
       cache.upsert(cacheKey, categoryResult);
@@ -28,9 +28,9 @@ class CategoryRepository {
     final cacheKey = 'getCategory($categoryId)';
 
     try {
-      return cache.read(cacheKey);
+      return cache.read(cacheKey) as Category;
     } catch (_) {
-      final Category category = await categoriesApi.getCategoryById(categoryId);
+      final category = await categoriesApi.getCategoryById(categoryId);
 
       cache.upsert(cacheKey, category);
 
@@ -42,10 +42,9 @@ class CategoryRepository {
     final cacheKey = 'getProductCategories($productId)';
 
     try {
-      return cache.read(cacheKey);
+      return cache.read(cacheKey) as List<CategoryBasic>;
     } catch (_) {
-      final List<CategoryBasic> categories =
-          await categoriesApi.getProductCategories(productId);
+      final categories = await categoriesApi.getProductCategories(productId);
 
       cache.upsert(cacheKey, categories);
 
@@ -57,9 +56,9 @@ class CategoryRepository {
     final cacheKey = 'getDepartmentCategories($departmentId)';
 
     try {
-      return cache.read(cacheKey);
+      return cache.read(cacheKey) as List<Category>;
     } catch (_) {
-      final List<Category> categories =
+      final categories =
           await categoriesApi.getCategoriesByDepartmentId(departmentId);
 
       cache.upsert(cacheKey, categories);

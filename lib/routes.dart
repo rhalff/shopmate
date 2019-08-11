@@ -5,6 +5,7 @@ import 'package:page_transition/page_transition.dart';
 import 'application.dart';
 import 'features/cart/screens/screens.dart';
 import 'features/catalog/blocs/blocs.dart';
+import 'features/catalog/models/models.dart';
 import 'features/catalog/screens/screens.dart';
 import 'features/checkout/screens/screens.dart';
 import 'features/customer/screens/screens.dart';
@@ -15,9 +16,9 @@ import 'widgets/widgets.dart';
 RouteFactory routes({
   @required Application application,
 }) {
-  return (settings) {
+  return (RouteSettings settings) {
     Widget screen;
-    final Map<String, dynamic> arguments = settings.arguments ?? {};
+    final arguments = settings.arguments as Map<String, dynamic> ?? {};
     switch (settings.name) {
       case Home.route:
         screen = MultiBlocProvider(
@@ -48,7 +49,9 @@ RouteFactory routes({
               value: application.productsBloc,
             ),
           ],
-          child: DepartmentScreen(department: arguments['department']),
+          child: DepartmentScreen(
+            department: arguments['department'] as Department,
+          ),
         );
         break;
       case CatalogScreen.route:
@@ -89,7 +92,9 @@ RouteFactory routes({
               value: application.reviewsBloc,
             ),
           ],
-          child: ProductScreen(product: arguments['product']),
+          child: ProductScreen(
+            product: arguments['product'] as Product,
+          ),
         );
         break;
       case SignUpScreen.route:
@@ -112,9 +117,11 @@ RouteFactory routes({
 
     return PageTransition(
       child: screen,
-      type: arguments['transition'] ?? PageTransitionType.rightToLeft,
-      alignment: arguments['alignment'],
-      duration: arguments['duration'] ?? Duration(milliseconds: 400),
+      type: arguments['transition'] as PageTransitionType ??
+          PageTransitionType.rightToLeft,
+      alignment: arguments['alignment'] as Alignment,
+      duration:
+          arguments['duration'] as Duration ?? Duration(milliseconds: 400),
     );
   };
 }

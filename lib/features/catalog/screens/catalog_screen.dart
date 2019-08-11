@@ -17,9 +17,8 @@ class _CatalogScreenState extends State<CatalogScreen> {
 
     _departmentsBloc = BlocProvider.of<DepartmentsBloc>(context);
 
-    _productsBloc = BlocProvider.of<ProductsBloc>(context);
-
-    _productsBloc.dispatch(LoadProducts());
+    _productsBloc = BlocProvider.of<ProductsBloc>(context)
+      ..dispatch(LoadProducts());
   }
 
   @override
@@ -41,7 +40,7 @@ class _CatalogScreenState extends State<CatalogScreen> {
           }
 
           return Center(
-            child: CircularProgressIndicator(),
+            child: const CircularProgressIndicator(),
           );
         },
       ),
@@ -58,22 +57,17 @@ class _CatalogScreenState extends State<CatalogScreen> {
       ) {
         if (state is DepartmentsLoaded) {
           final items = <LinkItem>[
-            LinkItem(
+            const LinkItem(
               title: 'Home',
               route: '/',
             ),
-          ];
-
-          items.addAll(
-            state.departments.map(
-              (department) {
-                return LinkItem(
-                  title: department.name,
-                  route: '/categories/${department.name}',
-                );
-              },
+            ...state.departments.map(
+              (department) => LinkItem(
+                title: department.name,
+                route: '/categories/${department.name}',
+              ),
             ),
-          );
+          ];
 
           return BreadCrumbs(
             items: items,

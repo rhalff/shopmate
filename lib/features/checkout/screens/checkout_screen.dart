@@ -25,11 +25,11 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
   @override
   Widget build(BuildContext context) {
     if (!(_cartBloc?.currentState is CartLoaded)) {
-      return Center(child: CircularProgressIndicator());
+      return Center(child: const CircularProgressIndicator());
     }
 
     Widget child;
-    List<Widget> footerButtons = [];
+    var footerButtons = <Widget>[];
 
     if (step == 0) {
       child = CheckoutDeliveryForm(

@@ -20,7 +20,7 @@ class CustomerSerializer extends Serializer<Customer>
 @GenSerializer(
   fields: {
     'accessToken': Field(
-      processor: const _StripBearerProcessor(),
+      processor: _StripBearerProcessor(),
     ),
   },
 )

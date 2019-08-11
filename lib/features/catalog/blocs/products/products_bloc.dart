@@ -23,15 +23,13 @@ class ProductsBloc extends Bloc<ProductsEvent, ProductsState> {
     try {
       List<Product> products;
       if (event.departmentId != null) {
-        products = await this
-            .productRepository
-            .getProductsByDepartmentId(departmentId: event.departmentId);
+        products = await productRepository.getProductsByDepartmentId(
+            departmentId: event.departmentId);
       } else if (event.categoryId != null) {
-        products = await this
-            .productRepository
-            .getProductsByCategoryId(categoryId: event.categoryId);
+        products = await productRepository.getProductsByCategoryId(
+            categoryId: event.categoryId);
       } else {
-        products = await this.productRepository.getProducts();
+        products = await productRepository.getProducts();
       }
 
       yield ProductsLoaded(products);

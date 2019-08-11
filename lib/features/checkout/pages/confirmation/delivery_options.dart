@@ -14,22 +14,22 @@ class DeliveryOptionsDetails extends StatelessWidget {
           Header4(
             'Delivery options',
             style: TextStyle(
-              color: Color(0xFFB4B4B4),
+              color: const Color(0xFFB4B4B4),
             ),
           ),
-          SizedBox(height: 18),
+          const SizedBox(height: 18),
           Text(
             shipping == ShippingType.standard
                 ? 'Standard delivery'
                 : 'Express delivery',
             style: TextStyle(
-              color: Color(0xFF2E2E2E),
+              color: const Color(0xFF2E2E2E),
             ),
           ),
           Text(
             '(free, 2-3 days)',
             style: TextStyle(
-              color: Color(0xFF2E2E2E),
+              color: const Color(0xFF2E2E2E),
             ),
           ),
         ],

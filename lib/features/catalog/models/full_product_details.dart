@@ -12,7 +12,7 @@ class FullProductDetails {
   });
 
   double get rating {
-    double count = 0;
+    var count = 0;
 
     for (var i = 0; i < reviews.length; i++) {
       count += reviews[i].rating;
@@ -31,7 +31,7 @@ class FullProductDetails {
     }).toList();
   }
 
-  _mapColor(String color) {
+  Color _mapColor(String color) {
     final colorMap = {
       'Blue': Colors.blue,
       'Black': Colors.black,
@@ -47,7 +47,7 @@ class FullProductDetails {
       return colorMap[color];
     }
 
-    throw 'Could not convert color $color';
+    throw Exception('Could not convert color $color');
   }
 
   ProductAttribute getAttribute(String name) {

@@ -24,7 +24,7 @@ class _PaymentCardState extends State<PaymentCard> {
 
     return Container(
       width: 270,
-      margin: EdgeInsets.all(15),
+      margin: const EdgeInsets.all(15),
       decoration: BoxDecoration(
         color: _color,
         border: Border.all(color: _borderColor),
@@ -61,15 +61,15 @@ class _PaymentCardState extends State<PaymentCard> {
     );
   }
 
-  get _color {
+  Color get _color {
     return widget.groupValue == widget.value
-        ? Color(0xFFF3F6F9)
-        : Color(0xFFF9F9F9);
+        ? const Color(0xFFF3F6F9)
+        : const Color(0xFFF9F9F9);
   }
 
-  get _borderColor {
+  Color get _borderColor {
     return widget.groupValue == widget.value
-        ? Color(0xFF6EB2FB)
-        : Color(0xFFD8D8D8);
+        ? const Color(0xFF6EB2FB)
+        : const Color(0xFFD8D8D8);
   }
 }

@@ -21,7 +21,7 @@ class AuthRepository {
   }
 
   Future<bool> isAuthenticated() async {
-    return this.getAccessToken().then((String token) => token != null);
+    return getAccessToken().then((String token) => token != null);
   }
 
   Future<void> removeAccessToken() async {

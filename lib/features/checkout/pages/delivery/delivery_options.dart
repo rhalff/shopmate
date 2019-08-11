@@ -21,7 +21,7 @@ class _DeliveryOptionsState extends State<DeliveryOptions> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Header('Delivery Options'),
-        SizedBox(height: 15),
+        const SizedBox(height: 15),
         Wrap(
           children: <Widget>[
             Row(
@@ -35,8 +35,8 @@ class _DeliveryOptionsState extends State<DeliveryOptions> {
                   'Standard shipping:',
                   style: theme.textTheme.display3,
                 ),
-                SizedBox(width: 15),
-                Text('(free, 2-3 business days)'),
+                const SizedBox(width: 15),
+                const Text('(free, 2-3 business days)'),
               ],
             ),
             Row(
@@ -50,7 +50,7 @@ class _DeliveryOptionsState extends State<DeliveryOptions> {
                   'Express shipping:',
                   style: theme.textTheme.display3,
                 ),
-                SizedBox(width: 15),
+                const SizedBox(width: 15),
                 Text('(${numberFormat.format(28)}, 1-2 business days)'),
               ],
             )

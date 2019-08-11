@@ -26,7 +26,7 @@ class DepartmentRow extends StatelessWidget {
                         Flexible(
                           fit: FlexFit.loose,
                           child: Container(
-                            margin: EdgeInsets.only(left: 30),
+                            margin: const EdgeInsets.only(left: 30),
                             child: Container(
                               child: Column(
                                 mainAxisAlignment:
@@ -65,7 +65,7 @@ class DepartmentRow extends StatelessWidget {
     );
   }
 
-  _showDepartmentDetail(BuildContext context, Product product) {
+  void _showDepartmentDetail(BuildContext context, Product product) {
     Navigator.of(context).pushNamed(
       CatalogScreen.route,
       arguments: {

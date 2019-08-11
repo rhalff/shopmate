@@ -1,6 +1,6 @@
 part of catalog.widgets;
 
-const MAX_VALUE_DEFAULT = 999999;
+const _kMaxValueDefault = 999999;
 
 class NumericStepper extends StatefulWidget {
   final int value;
@@ -12,7 +12,7 @@ class NumericStepper extends StatefulWidget {
   NumericStepper({
     this.value = 1,
     this.minValue = 0,
-    this.maxValue = MAX_VALUE_DEFAULT,
+    this.maxValue = _kMaxValueDefault,
     this.onChanged,
     this.onIncrease,
     this.onDecrease,
@@ -61,7 +61,7 @@ class _NumericStepperState extends State<NumericStepper> {
             controller: _textFieldController,
             textAlign: TextAlign.center,
             textAlignVertical: TextAlignVertical.center,
-            keyboardType: TextInputType.numberWithOptions(decimal: false),
+            keyboardType: const TextInputType.numberWithOptions(decimal: false),
             onChanged: _inputChanged,
             style: TextStyle(
               fontSize: isLargeScreen ? 14 : 7,
@@ -99,21 +99,21 @@ class _NumericStepperState extends State<NumericStepper> {
     return int.parse(_textFieldController.text);
   }
 
-  _inputChanged(String value) {
+  void _inputChanged(String value) {
     if (widget.onChanged != null) {
       widget.onChanged(int.parse(value));
     }
   }
 
-  get _canIncrease {
+  bool get _canIncrease {
     return _currentValue < widget.maxValue;
   }
 
-  get _canDecrease {
+  bool get _canDecrease {
     return _currentValue > widget.minValue;
   }
 
-  _decrease() {
+  void _decrease() {
     if (_canDecrease) {
       _stepValue(-1);
 
@@ -123,7 +123,7 @@ class _NumericStepperState extends State<NumericStepper> {
     }
   }
 
-  _increase() {
+  void _increase() {
     if (_canIncrease) {
       _stepValue(1);
 
@@ -133,7 +133,7 @@ class _NumericStepperState extends State<NumericStepper> {
     }
   }
 
-  _stepValue(int step) {
+  void _stepValue(int step) {
     final newValue = _currentValue + step;
 
     if (widget.onChanged != null) {
@@ -164,7 +164,7 @@ class CircularButton extends StatelessWidget {
       onPressed: onPressed,
       materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
       child: child,
-      shape: new CircleBorder(),
+      shape: CircleBorder(),
       elevation: 0,
       fillColor: DocumentColors[7],
       constraints: constraints,

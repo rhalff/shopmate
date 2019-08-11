@@ -87,7 +87,7 @@ class _ProductReviewFormFieldState extends State<ProductReviewFormField> {
     );
   }
 
-  _buildTextField(context) {
+  Widget _buildTextField(context) {
     return Container(
       width: 45,
       // height: widget.maxLines == null ? 35 : null,
@@ -111,12 +111,21 @@ class _ProductReviewFormFieldState extends State<ProductReviewFormField> {
           color: Colors.black,
           fontWeight: FontWeight.bold,
         ),
-        decoration: InputDecoration(
-          hintText: widget.placeholder,
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(16.0),
-          ),
-        ),
+        decoration: widget.enabled
+            ? InputDecoration(
+                hintText: widget.placeholder,
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(16.0),
+                ),
+              )
+            : InputDecoration(
+                hintText: widget.placeholder,
+                filled: true,
+                fillColor: Colors.grey.shade200,
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(16.0),
+                ),
+              ),
       ),
     );
   }

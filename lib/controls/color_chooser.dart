@@ -19,7 +19,7 @@ class _ColorChooserState extends State<ColorChooser> {
   String _groupValue;
 
   @override
-  initState() {
+  void initState() {
     _groupValue = widget.colors[widget.selectedIndex].value;
 
     super.initState();
@@ -42,7 +42,7 @@ class _ColorChooserState extends State<ColorChooser> {
             toggleableActiveColor: Colors.yellow,
           ),
           child: Container(
-            constraints: BoxConstraints.tight(Size(28, 28)),
+            constraints: BoxConstraints.tight(const Size(28, 28)),
             child: ColoredRadio<String>(
               activeColor: color.color,
               value: color.value,

@@ -21,7 +21,7 @@ class SizeChooser extends StatelessWidget {
     );
   }
 
-  Row _buildSizes(context) {
+  Row _buildSizes(BuildContext context) {
     final theme = Theme.of(context);
     return Row(
       children: List.generate(sizes.length, (index) {

@@ -30,7 +30,7 @@ class _SizesDropDownState extends State<SizesDropDown> {
     );
   }
 
-  _onChanged(String value) {
+  void _onChanged(String value) {
     if (widget.onChanged != null) {
       final attribute = widget.sizes
           .firstWhere((ProductAttribute size) => size.value == value);
@@ -40,7 +40,7 @@ class _SizesDropDownState extends State<SizesDropDown> {
   }
 
   List<DropdownMenuItem<String>> _buildDropDownMenuItems(
-      context, List<String> items) {
+      BuildContext context, List<String> items) {
     final theme = Theme.of(context);
 
     return items.map((String value) {

@@ -21,7 +21,7 @@ class _ProductGridState extends State<ProductGrid> {
     controller.addListener(_onScroll);
   }
 
-  _onScroll() {
+  void _onScroll() {
     widget?.onScroll(controller);
   }
 
@@ -80,13 +80,13 @@ class ProductCard extends StatelessWidget {
               color: Colors.white,
               child: Column(
                 children: <Widget>[
-                  SizedBox(height: 15),
+                  const SizedBox(height: 15),
                   CachedImage(
                     'https://backendapi.turing.com/images/products/${product.thumbnail}',
                   ),
-                  SizedBox(height: 15),
+                  const SizedBox(height: 15),
                   Header3(product.name),
-                  SizedBox(height: 15),
+                  const SizedBox(height: 15),
                   PriceColumn(product: product),
                 ],
               ),
@@ -97,7 +97,7 @@ class ProductCard extends StatelessWidget {
     );
   }
 
-  _showProductDetail(BuildContext context, Product product) {
+  void _showProductDetail(BuildContext context, Product product) {
     Navigator.of(context).pushNamed(ProductScreen.route, arguments: {
       'product': product,
     });

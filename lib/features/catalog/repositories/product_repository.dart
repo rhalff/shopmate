@@ -12,16 +12,16 @@ class ProductRepository {
   }) : assert(productsApi != null);
 
   Future<List<Product>> getProducts({
-    page = 1,
-    limit = 50,
-    descriptionLength = 30,
+    int page = 1,
+    int limit = 50,
+    int descriptionLength = 30,
   }) async {
     final cacheKey = 'getProducts($page,$limit,$descriptionLength)';
 
     try {
-      return cache.read(cacheKey);
+      return cache.read(cacheKey) as List<Product>;
     } catch (_) {
-      final GetProductsResponse productResult =
+      final productResult =
           await productsApi.getProducts(page, limit, descriptionLength);
 
       cache.upsert(cacheKey, productResult.rows);
@@ -31,20 +31,19 @@ class ProductRepository {
   }
 
   Future<List<Product>> getProductsByDepartmentId({
-    departmentId,
-    page = 1,
-    limit = 50,
-    descriptionLength = 30,
+    int departmentId,
+    int page = 1,
+    int limit = 50,
+    int descriptionLength = 30,
   }) async {
     assert(departmentId != null);
     final cacheKey =
         'getProductsByDepartmentId($departmentId,$page,$limit,$descriptionLength)';
 
     try {
-      return cache.read(cacheKey);
+      return cache.read(cacheKey) as List<Product>;
     } catch (_) {
-      final GetProductsResponse productResult =
-          await productsApi.getProductsByDepartmentId(
+      final productResult = await productsApi.getProductsByDepartmentId(
         departmentId,
         page,
         limit,
@@ -53,7 +52,7 @@ class ProductRepository {
 
       cache.upsert(cacheKey, productResult.rows);
 
-      final Iterable<Future<FullProductDetails>> products = productResult.rows
+      final products = productResult.rows
           .map((product) => getFullProductDetails(product.productId));
 
       await Future.wait(products);
@@ -63,20 +62,19 @@ class ProductRepository {
   }
 
   Future<List<Product>> getProductsByCategoryId({
-    categoryId,
-    page = 1,
-    limit = 50,
-    descriptionLength = 30,
+    int categoryId,
+    int page = 1,
+    int limit = 50,
+    int descriptionLength = 30,
   }) async {
     assert(categoryId != null);
     final cacheKey =
         'getProductsByCategoryId($categoryId,$page,$limit,$descriptionLength)';
 
     try {
-      return cache.read(cacheKey);
+      return cache.read(cacheKey) as List<Product>;
     } catch (_) {
-      final GetProductsResponse productResult =
-          await productsApi.getProductsByCategoryId(
+      final productResult = await productsApi.getProductsByCategoryId(
         categoryId,
         page,
         limit,
@@ -89,7 +87,7 @@ class ProductRepository {
     }
   }
 
-  Future<List<Review>> getProductReviews(productId) async {
+  Future<List<Review>> getProductReviews(int productId) async {
     return productsApi.getProductReviews(productId);
   }
 
@@ -105,15 +103,13 @@ class ProductRepository {
     final cacheKey = 'getFullProductDetails($productId)';
 
     try {
-      return cache.read(cacheKey);
+      return cache.read(cacheKey) as FullProductDetails;
     } catch (_) {
-      final List<ProductDetail> product =
-          await productsApi.getProductDetailsById(productId);
+      final product = await productsApi.getProductDetailsById(productId);
 
-      final List<Review> reviews =
-          await productsApi.getProductReviews(productId);
+      final reviews = await productsApi.getProductReviews(productId);
 
-      final List<ProductAttribute> attributes =
+      final attributes =
           await attributesApi.getAttributesByProductId(productId);
 
       final fullProductDetails = FullProductDetails(

@@ -12,7 +12,7 @@ class BreadCrumbs extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    List<Widget> children = [];
+    final children = <Widget>[];
 
     for (var i = 0; i < items.length; i++) {
       if (i > 0 && i < items.length) {

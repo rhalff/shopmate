@@ -48,7 +48,7 @@ class _AddToCartButtonState extends State<AddToCartButton> {
     );
   }
 
-  get isEnabled {
+  bool get isEnabled {
     return widget.quantity > 0 &&
         widget.size != null &&
         widget.color != null &&

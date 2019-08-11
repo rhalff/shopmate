@@ -15,7 +15,7 @@ class _CheckoutPaymentPageState extends State<CheckoutPaymentPage> {
       height: 500,
       child: Column(
         children: <Widget>[
-          SizedBox(height: 18),
+          const SizedBox(height: 18),
           Wrap(
             // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
@@ -37,7 +37,7 @@ class _CheckoutPaymentPageState extends State<CheckoutPaymentPage> {
               ),
             ],
           ),
-          SizedBox(height: 48),
+          const SizedBox(height: 48),
           if (_groupValue == 'creditcard') CreditCardForm()
         ],
       ),

@@ -34,7 +34,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
           if (state is CustomerSigningUp) {
             return CustomerPage(
               title: 'Signing up...',
-              child: CircularProgressIndicator(),
+              child: const CircularProgressIndicator(),
             );
           } else if (state is CustomerError) {
             error = state.error;

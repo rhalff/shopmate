@@ -19,8 +19,7 @@ class ShippingBloc extends Bloc<ShippingEvent, ShippingState> {
 
   Stream<ShippingState> _loadShipping() async* {
     try {
-      final List<ShippingRegion> shipping =
-          await this.shippingRegionRepository.getShippingRegions();
+      final shipping = await shippingRegionRepository.getShippingRegions();
 
       yield ShippingLoaded(shipping);
     } catch (error) {

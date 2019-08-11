@@ -1,18 +1,16 @@
 import 'package:flutter/widgets.dart';
 
-// Bug color white was translated to black
-// paint.color = Color(0xffffffff);
-// had to add ..fillType = PathFillType.evenOdd not sure what it changes though
 class Vectors {
-  static rocket(Canvas canvas, Size size, {Color fill = null}) {
-    canvas.translate(0.0, 0.0);
-    canvas.scale((size.width / 280.000000), (size.height / 251.000000));
+  static void rocket(Canvas canvas, Size size, {Color fill}) {
+    canvas
+      ..translate(0.0, 0.0)
+      ..scale((size.width / 280.000000), (size.height / 251.000000));
     final paint = Paint();
     if (fill != null) {
       paint.color = fill;
     }
     if (fill == null) {
-      paint.color = Color(0xffffffff);
+      paint.color = const Color(0xffffffff);
     }
     canvas.drawPath(
         (Path()
@@ -29,7 +27,7 @@ class Vectors {
           ..close()),
         paint);
     if (fill == null) {
-      paint.color = Color(0xffffffff);
+      paint.color = const Color(0xffffffff);
     }
     canvas.drawPath(
         (Path()
@@ -41,7 +39,7 @@ class Vectors {
           ..close()),
         paint);
     if (fill == null) {
-      paint.color = Color(0xffffffff);
+      paint.color = const Color(0xffffffff);
     }
     canvas.drawPath(
         (Path()
@@ -53,7 +51,7 @@ class Vectors {
           ..close()),
         paint);
     if (fill == null) {
-      paint.color = Color(0xffffffff);
+      paint.color = const Color(0xffffffff);
     }
     canvas.drawPath(
         (Path()
@@ -65,7 +63,7 @@ class Vectors {
           ..close()),
         paint);
     if (fill == null) {
-      paint.color = Color(0xffffffff);
+      paint.color = const Color(0xffffffff);
     }
     canvas.drawPath(
         (Path()
@@ -82,7 +80,7 @@ class Vectors {
           ..close()),
         paint);
     if (fill == null) {
-      paint.color = Color(0xffffffff);
+      paint.color = const Color(0xffffffff);
     }
     canvas.drawPath(
         (Path()
@@ -99,7 +97,7 @@ class Vectors {
           ..close()),
         paint);
     if (fill == null) {
-      paint.color = Color(0xffffffff);
+      paint.color = const Color(0xffffffff);
     }
     canvas.drawPath(
         (Path()
@@ -116,7 +114,7 @@ class Vectors {
           ..close()),
         paint);
     if (fill == null) {
-      paint.color = Color(0xffffffff);
+      paint.color = const Color(0xffffffff);
     }
     canvas.drawPath(
         (Path()
@@ -133,7 +131,7 @@ class Vectors {
           ..close()),
         paint);
     if (fill == null) {
-      paint.color = Color(0xffffffff);
+      paint.color = const Color(0xffffffff);
     }
     canvas.drawPath(
         (Path()
@@ -150,7 +148,7 @@ class Vectors {
           ..close()),
         paint);
     if (fill == null) {
-      paint.color = Color(0xffffffff);
+      paint.color = const Color(0xffffffff);
     }
     canvas.drawPath(
         (Path()
@@ -167,7 +165,7 @@ class Vectors {
           ..close()),
         paint);
     if (fill == null) {
-      paint.color = Color(0xffffffff);
+      paint.color = const Color(0xffffffff);
     }
     canvas.drawPath(
         (Path()
@@ -182,27 +180,29 @@ class Vectors {
           ..close()),
         paint);
     if (fill == null) {
-      paint.color = Color(0xffffffff).withOpacity(0.398466);
+      paint.color = const Color(0xffffffff).withOpacity(0.398466);
     }
     canvas.drawRect(
-        (Rect.fromLTWH(270.071000, 101.277000, 9.929080, 9.929080)), paint);
+        const Rect.fromLTWH(270.071000, 101.277000, 9.929080, 9.929080), paint);
     if (fill == null) {
-      paint.color = Color(0xffffffff).withOpacity(0.398466);
+      paint.color = const Color(0xffffffff).withOpacity(0.398466);
     }
     canvas.drawRect(
-        (Rect.fromLTWH(205.532000, 192.624000, 17.872300, 17.872300)), paint);
+        const Rect.fromLTWH(205.532000, 192.624000, 17.872300, 17.872300),
+        paint);
     if (fill == null) {
-      paint.color = Color(0xffffffff).withOpacity(0.398466);
+      paint.color = const Color(0xffffffff).withOpacity(0.398466);
     }
     canvas.drawRect(
-        (Rect.fromLTWH(48.652500, 143.972000, 13.900700, 13.900700)), paint);
+        const Rect.fromLTWH(48.652500, 143.972000, 13.900700, 13.900700),
+        paint);
     if (fill == null) {
-      paint.color = Color(0xffffffff).withOpacity(0.398466);
+      paint.color = const Color(0xffffffff).withOpacity(0.398466);
     }
     canvas.drawRect(
-        (Rect.fromLTWH(24.822700, 63.546100, 6.950350, 6.950350)), paint);
+        const Rect.fromLTWH(24.822700, 63.546100, 6.950350, 6.950350), paint);
     if (fill == null) {
-      paint.color = Color(0xffffffff).withOpacity(0.398466);
+      paint.color = const Color(0xffffffff).withOpacity(0.398466);
     }
     canvas.drawPath(
         (Path()
@@ -219,7 +219,7 @@ class Vectors {
           ..close()),
         paint);
     if (fill == null) {
-      paint.color = Color(0xffffffff);
+      paint.color = const Color(0xffffffff);
     }
     canvas.drawPath(
         (Path()
@@ -235,10 +235,11 @@ class Vectors {
 
     // Border
     if (fill == null) {
-      paint.style = PaintingStyle.stroke;
-      paint.strokeWidth = 4;
-      paint.color = Color(0xff252529);
-      paint.strokeCap = StrokeCap.round;
+      paint
+        ..style = PaintingStyle.stroke
+        ..strokeWidth = 4
+        ..color = const Color(0xff252529)
+        ..strokeCap = StrokeCap.round;
     }
     canvas.drawPath(
         (Path()
@@ -253,12 +254,13 @@ class Vectors {
         paint);
 
     // reset
-    paint.strokeCap = StrokeCap.butt; // << default
-    paint.strokeWidth = 1;
-    paint.style = PaintingStyle.fill;
+    paint
+      ..strokeCap = StrokeCap.butt // << default
+      ..strokeWidth = 1
+      ..style = PaintingStyle.fill;
 
     if (fill == null) {
-      paint.color = Color(0xffffffff);
+      paint.color = const Color(0xffffffff);
     }
     canvas.drawPath(
         (Path()
@@ -272,7 +274,7 @@ class Vectors {
           ..close()),
         paint);
     if (fill == null) {
-      paint.color = Color(0xff6eb2fb);
+      paint.color = const Color(0xff6eb2fb);
     }
     canvas.drawPath(
         (Path()
@@ -289,7 +291,7 @@ class Vectors {
           ..close()),
         paint);
     if (fill == null) {
-      paint.color = Color(0xffffffff);
+      paint.color = const Color(0xffffffff);
     }
     canvas.drawPath(
         (Path()
@@ -306,7 +308,7 @@ class Vectors {
           ..close()),
         paint);
     if (fill == null) {
-      paint.color = Color(0xffffffff);
+      paint.color = const Color(0xffffffff);
     }
     canvas.drawPath(
         (Path()
@@ -323,7 +325,7 @@ class Vectors {
           ..close()),
         paint);
     if (fill == null) {
-      paint.color = Color(0xffffffff);
+      paint.color = const Color(0xffffffff);
     }
     canvas.drawPath(
         (Path()
@@ -340,7 +342,7 @@ class Vectors {
           ..close()),
         paint);
     if (fill == null) {
-      paint.color = Color(0xffffffff);
+      paint.color = const Color(0xffffffff);
     }
     canvas.drawPath(
         (Path()
@@ -353,7 +355,7 @@ class Vectors {
           ..close()),
         paint);
     if (fill == null) {
-      paint.color = Color(0xffe9eeef);
+      paint.color = const Color(0xffe9eeef);
     }
     canvas.drawPath(
         (Path()
@@ -366,7 +368,7 @@ class Vectors {
           ..close()),
         paint);
     if (fill == null) {
-      paint.color = Color(0xffe9eeef);
+      paint.color = const Color(0xffe9eeef);
     }
     canvas.drawPath(
         (Path()

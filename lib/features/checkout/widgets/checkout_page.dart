@@ -13,7 +13,7 @@ class CheckoutPage extends StatelessWidget {
     this.child,
     this.footerButtons = const [],
   })  : assert(title != null),
-        assert(steps != null && steps.length > 0);
+        assert(steps != null && steps.isNotEmpty);
 
   @override
   Widget build(BuildContext context) {
@@ -34,9 +34,9 @@ class CheckoutPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              SizedBox(height: 50),
+              const SizedBox(height: 50),
               Header(title),
-              SizedBox(height: 50),
+              const SizedBox(height: 50),
               Stepper(
                 steps: steps,
                 currentStep: currentStep,

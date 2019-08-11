@@ -22,7 +22,7 @@ class CategoriesApi extends ApiClient with _$CategoriesApiClient {
   ///
   /// Return a list of categories.
   @GetReq(path: '/')
-  Future<Object> getCategories(
+  Future<List<Category>> getCategories(
     @QueryParam('order') String order,
     @QueryParam('page') int page,
     @QueryParam('limit') int limit,

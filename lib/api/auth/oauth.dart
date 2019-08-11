@@ -17,11 +17,11 @@ class OAuthInterceptor extends AuthInterceptor {
     for (var info in authInfo) {
       final token = tokens[info['name']];
       if (token != null) {
-        route.header(this.headerName, 'Bearer $token');
+        route.header(headerName, 'Bearer $token');
         break;
       }
     }
-    return super.before(route);
+    super.before(route);
   }
 
   @override

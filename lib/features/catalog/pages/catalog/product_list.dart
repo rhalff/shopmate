@@ -21,7 +21,7 @@ class _ProductListState extends State<ProductList> {
     controller.addListener(_onScroll);
   }
 
-  _onScroll() {
+  void _onScroll() {
     widget?.onScroll(controller);
   }
 
@@ -44,10 +44,10 @@ class _ProductListState extends State<ProductList> {
             tag: 'product-${product.productId}',
             child: Column(
               children: <Widget>[
-                SizedBox(height: 8),
+                const SizedBox(height: 8),
                 ProductRow(product: product),
-                SizedBox(height: 8),
-                Divider(height: 1),
+                const SizedBox(height: 8),
+                const Divider(height: 1),
               ],
             ),
           ),

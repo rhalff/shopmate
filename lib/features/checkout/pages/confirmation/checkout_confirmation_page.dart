@@ -27,7 +27,7 @@ class _CheckoutConfirmationPageState extends State<CheckoutConfirmationPage> {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          SizedBox(height: 24),
+          const SizedBox(height: 24),
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
@@ -35,7 +35,7 @@ class _CheckoutConfirmationPageState extends State<CheckoutConfirmationPage> {
                 flex: 2,
                 child: _buildOrderSummary(),
               ),
-              SizedBox(width: 64),
+              const SizedBox(width: 64),
               Expanded(
                 flex: 1,
                 child: DeliveryInfo(
@@ -44,9 +44,9 @@ class _CheckoutConfirmationPageState extends State<CheckoutConfirmationPage> {
               )
             ],
           ),
-          SizedBox(height: 40),
-          Line(height: 2),
-          SizedBox(height: 18),
+          const SizedBox(height: 40),
+          const Line(height: 2),
+          const SizedBox(height: 18),
           BlocBuilder(
             bloc: _cartBloc,
             builder: (
@@ -57,7 +57,7 @@ class _CheckoutConfirmationPageState extends State<CheckoutConfirmationPage> {
                 return _buildConfirmationFooter(state.cart);
               }
 
-              return Center(child: CircularProgressIndicator());
+              return Center(child: const CircularProgressIndicator());
             },
           )
         ],
@@ -65,7 +65,7 @@ class _CheckoutConfirmationPageState extends State<CheckoutConfirmationPage> {
     );
   }
 
-  _buildConfirmationFooter(List<CartWithProduct> cart) {
+  Widget _buildConfirmationFooter(List<CartWithProduct> cart) {
     final numberFormat = NumberFormat.simpleCurrency(name: 'GBP');
 
     final total = cart.fold(0, (num total, CartWithProduct product) {
@@ -88,14 +88,14 @@ class _CheckoutConfirmationPageState extends State<CheckoutConfirmationPage> {
                     Header4(
                       'Subtotal',
                       style: TextStyle(
-                        color: Color(0xFFB4B4B4),
+                        color: const Color(0xFFB4B4B4),
                         fontSize: 16,
                       ),
                     ),
                     Text(
                       numberFormat.format(total),
                       style: TextStyle(
-                        color: Color(0xFF2E2E2E),
+                        color: const Color(0xFF2E2E2E),
                         fontWeight: FontWeight.bold,
                         fontSize: 16,
                       ),
@@ -111,14 +111,14 @@ class _CheckoutConfirmationPageState extends State<CheckoutConfirmationPage> {
                     Header4(
                       'Shipping',
                       style: TextStyle(
-                        color: Color(0xFFB4B4B4),
+                        color: const Color(0xFFB4B4B4),
                         fontSize: 16,
                       ),
                     ),
                     Text(
                       'free',
                       style: TextStyle(
-                        color: Color(0xFF2E2E2E),
+                        color: const Color(0xFF2E2E2E),
                         fontWeight: FontWeight.bold,
                         fontSize: 16,
                       ),
@@ -134,14 +134,14 @@ class _CheckoutConfirmationPageState extends State<CheckoutConfirmationPage> {
                     Header4(
                       'Grandtotal',
                       style: TextStyle(
-                        color: Color(0xFFB4B4B4),
+                        color: const Color(0xFFB4B4B4),
                         fontSize: 16,
                       ),
                     ),
                     Text(
                       numberFormat.format(total),
                       style: TextStyle(
-                        color: Color(0xFF2E2E2E),
+                        color: const Color(0xFF2E2E2E),
                         fontWeight: FontWeight.bold,
                         fontSize: 24,
                       ),
@@ -156,7 +156,7 @@ class _CheckoutConfirmationPageState extends State<CheckoutConfirmationPage> {
     );
   }
 
-  _buildOrderSummary() {
+  Widget _buildOrderSummary() {
     return BlocBuilder(
       bloc: _cartBloc,
       builder: (
@@ -167,7 +167,7 @@ class _CheckoutConfirmationPageState extends State<CheckoutConfirmationPage> {
           return OrderSummary(cart: state.cart);
         }
 
-        return Center(child: CircularProgressIndicator());
+        return Center(child: const CircularProgressIndicator());
       },
     );
   }

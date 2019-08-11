@@ -13,8 +13,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
   void initState() {
     super.initState();
 
-    _customerBloc = BlocProvider.of<CustomerBloc>(context);
-    _customerBloc.dispatch(LoadCustomer());
+    _customerBloc = BlocProvider.of<CustomerBloc>(context)
+      ..dispatch(LoadCustomer());
   }
 
   @override
@@ -24,7 +24,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
       builder: (BuildContext context, CustomerState state) {
         if (state is CustomerLoading) {
           return CustomerPage(
-            child: CircularProgressIndicator(),
+            child: const CircularProgressIndicator(),
           );
         } else if (state is CustomerError) {
           return ErrorContainer(
@@ -66,9 +66,9 @@ class _ProfileFormState extends State<ProfileForm> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final _data = Profile();
 
-  FocusNode _nameFocus = FocusNode();
-  FocusNode _emailFocus = FocusNode();
-  FocusNode _passwordFocus = FocusNode();
+  final FocusNode _nameFocus = FocusNode();
+  final FocusNode _emailFocus = FocusNode();
+  final FocusNode _passwordFocus = FocusNode();
 
   CustomerBloc _customerBloc;
 
@@ -88,7 +88,7 @@ class _ProfileFormState extends State<ProfileForm> {
           return _buildForm(context, state.customer);
         }
 
-        return CircularProgressIndicator();
+        return const CircularProgressIndicator();
       },
     );
   }
@@ -114,7 +114,7 @@ class _ProfileFormState extends State<ProfileForm> {
                 text: 'Cancel',
                 onPressed: () => Navigator.of(context).pop(),
               ),
-              SizedBox(width: 30),
+              const SizedBox(width: 30),
               RoundedButton(
                 text: 'Update',
                 onPressed: _update,
@@ -126,7 +126,7 @@ class _ProfileFormState extends State<ProfileForm> {
     );
   }
 
-  _buildProfileFields(Customer customer) {
+  Widget _buildProfileFields(Customer customer) {
     return Column(
       children: <Widget>[
         NameField(
@@ -156,7 +156,7 @@ class _ProfileFormState extends State<ProfileForm> {
     );
   }
 
-  _buildAddressFields(Customer customer) {
+  Widget _buildAddressFields(Customer customer) {
     return Column(
       children: <Widget>[
         NameField(
@@ -228,7 +228,7 @@ class _ProfileFormState extends State<ProfileForm> {
   }
 
   void _update() {
-    if (this._formKey.currentState.validate()) {
+    if (_formKey.currentState.validate()) {
       _formKey.currentState.save();
 
       _customerBloc.dispatch(UpdateCustomer(_data));

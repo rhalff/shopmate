@@ -19,8 +19,8 @@ class _ProductActionsState extends State<ProductActions> {
   void didChangeDependencies() {
     super.didChangeDependencies();
 
-    _productBloc = BlocProvider.of<ProductBloc>(context);
-    _productBloc.dispatch(LoadProduct(productId: widget.product.productId));
+    _productBloc = BlocProvider.of<ProductBloc>(context)
+      ..dispatch(LoadProduct(productId: widget.product.productId));
   }
 
   @override
@@ -47,11 +47,11 @@ class _ProductActionsState extends State<ProductActions> {
             );
           }
 
-          return Center(child: CircularProgressIndicator());
+          return Center(child: const CircularProgressIndicator());
         });
   }
 
-  _buildSizesDropDown(List<ProductAttribute> sizes) {
+  Widget _buildSizesDropDown(List<ProductAttribute> sizes) {
     return SizesDropDown(
       sizes: sizes,
       value: _selectedSize?.value,
@@ -59,7 +59,7 @@ class _ProductActionsState extends State<ProductActions> {
     );
   }
 
-  _onChangedSize(ProductAttribute newValue) {
+  void _onChangedSize(ProductAttribute newValue) {
     setState(() {
       _selectedSize = newValue;
     });

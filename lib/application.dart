@@ -56,7 +56,7 @@ class Application {
     secureStorage = FlutterSecureStorage();
 
     cache = InMemoryCache(
-      Duration(
+      const Duration(
         hours: 5,
       ),
     );
@@ -71,7 +71,7 @@ class Application {
 
     final accessToken = await authRepository.getAccessToken();
 
-    bool isAuthenticated = false;
+    var isAuthenticated = false;
     if (accessToken != null) {
       turingApi.setOAuthToken('customer', accessToken);
 
@@ -83,7 +83,7 @@ class Application {
     );
   }
 
-  setupRepositories() {
+  void setupRepositories() {
     final attributesApi = turingApi.getAttributesApi();
     final categoriesApi = turingApi.getCategoriesApi();
     final customersApi = turingApi.getCustomersApi();
@@ -139,7 +139,7 @@ class Application {
     );
   }
 
-  setupBlocs({
+  void setupBlocs({
     bool isAuthenticated,
   }) {
     cartBloc = CartBloc(

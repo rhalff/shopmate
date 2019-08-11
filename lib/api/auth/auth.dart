@@ -5,10 +5,10 @@ abstract class AuthInterceptor extends Interceptor {
      * Get auth information on given route for the given type
      * Can return null if type is not present on auth data or if route doesn't need authentication
      */
-  List<Map<String, dynamic>> getAuthInfo(RouteBase route, String type) {
+  List<dynamic> getAuthInfo(RouteBase route, String type) {
     if (route.metadataMap.containsKey('auth')) {
       final auth = route.metadataMap['auth'];
-      List<Map<String, dynamic>> results = [];
+      final results = [];
       for (var info in auth) {
         if (info['type'] == type) {
           results.add(info);

@@ -28,12 +28,12 @@ class _CatalogOverviewState extends State<CatalogOverview>
         children: <Widget>[
           Container(
             padding: isLargeScreen
-                ? EdgeInsets.only(
+                ? const EdgeInsets.only(
                     top: 15,
                     left: 30,
                     right: 30,
                   )
-                : EdgeInsets.only(
+                : const EdgeInsets.only(
                     left: 2,
                     right: 2,
                   ),
@@ -55,11 +55,11 @@ class _CatalogOverviewState extends State<CatalogOverview>
             child: Container(
               color: Colors.white,
               padding: isLargeScreen
-                  ? EdgeInsets.only(
+                  ? const EdgeInsets.only(
                       left: 30,
                       right: 30,
                     )
-                  : EdgeInsets.only(
+                  : const EdgeInsets.only(
                       left: 3,
                       right: 3,
                     ),
@@ -71,7 +71,7 @@ class _CatalogOverviewState extends State<CatalogOverview>
     );
   }
 
-  _buildCatalogView() {
+  Widget _buildCatalogView() {
     if (_viewType == CatalogViewType.listView) {
       return ProductList(
         products: widget.products,
@@ -85,12 +85,12 @@ class _CatalogOverviewState extends State<CatalogOverview>
     );
   }
 
-  double _headerMaxHeight = 50;
+  final double _headerMaxHeight = 50;
   double _headerHeight = 50;
 
-  _onScroll(ScrollController controller) {
+  void _onScroll(ScrollController controller) {
     setState(() {
-      var offset = controller.offset;
+      final offset = controller.offset;
 
       if (_headerHeight > 0 && offset < _headerMaxHeight) {
         _headerHeight = _headerMaxHeight - offset;
@@ -98,7 +98,7 @@ class _CatalogOverviewState extends State<CatalogOverview>
     });
   }
 
-  _buildOverviewHeader(BuildContext context) {
+  Widget _buildOverviewHeader(BuildContext context) {
     final theme = Theme.of(context);
     final opacity = _headerHeight / _headerMaxHeight;
 
@@ -135,7 +135,7 @@ class _CatalogOverviewState extends State<CatalogOverview>
         ),
         if (widget.description != null)
           Container(
-            padding: EdgeInsets.only(top: 15),
+            padding: const EdgeInsets.only(top: 15),
             color: Colors.white10.withOpacity(opacity),
             height: _headerHeight,
             child: Text(
@@ -148,7 +148,7 @@ class _CatalogOverviewState extends State<CatalogOverview>
     );
   }
 
-  _toggleView() {
+  void _toggleView() {
     setState(() {
       _headerHeight = _headerMaxHeight;
       _viewType = _viewType == CatalogViewType.listView

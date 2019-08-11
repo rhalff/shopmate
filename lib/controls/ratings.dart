@@ -17,7 +17,7 @@ class Ratings extends StatelessWidget {
     );
   }
 
-  _buildStars() {
+  List<Widget> _buildStars() {
     final items = <Widget>[];
     List.generate(stars, (index) {
       items.add(_buildStar(index));

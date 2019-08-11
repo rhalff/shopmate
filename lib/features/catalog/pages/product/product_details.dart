@@ -25,7 +25,7 @@ class _ProductDetailsState extends State<ProductDetails> {
   Widget build(BuildContext context) {
     final productDetails = widget.productDetails;
     return Container(
-      padding: EdgeInsets.only(top: 35),
+      padding: const EdgeInsets.only(top: 35),
       decoration: BoxDecoration(
         color: Colors.white,
         border: Border.all(
@@ -56,7 +56,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                 children: <Widget>[
                   if (productDetails != null)
                     Container(
-                      margin: EdgeInsets.only(bottom: 30),
+                      margin: const EdgeInsets.only(bottom: 30),
                       child: ProductInfo(
                         productDetails: productDetails,
                       ),
@@ -70,11 +70,11 @@ class _ProductDetailsState extends State<ProductDetails> {
     );
   }
 
-  int _selectedIndex(images) {
+  int _selectedIndex(List<String> images) {
     return images.indexOf(_selectedImage);
   }
 
-  _selectImage(String image) {
+  void _selectImage(String image) {
     setState(() {
       _selectedImage = image;
     });

@@ -24,14 +24,14 @@ class ReviewsBloc extends Bloc<ReviewsEvent, ReviewsState> {
     yield ReviewsLoading();
 
     try {
-      await this.productRepository.addReview(
-            event.productId,
-            event.review,
-            event.rating,
-          );
+      await productRepository.addReview(
+        event.productId,
+        event.review,
+        event.rating,
+      );
 
-      List<Review> reviews =
-          await this.productRepository.getProductReviews(event.productId);
+      final reviews =
+          await productRepository.getProductReviews(event.productId);
 
       yield ReviewsLoaded(reviews);
     } catch (error) {
@@ -44,8 +44,8 @@ class ReviewsBloc extends Bloc<ReviewsEvent, ReviewsState> {
     yield ReviewsLoading();
 
     try {
-      List<Review> reviews =
-          await this.productRepository.getProductReviews(event.productId);
+      final reviews =
+          await productRepository.getProductReviews(event.productId);
 
       yield ReviewsLoaded(reviews);
     } catch (error) {

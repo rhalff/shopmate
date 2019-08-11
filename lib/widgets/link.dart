@@ -31,7 +31,7 @@ class Link extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return InkWell(
-      onTap: this.item.onTap ?? onTap,
+      onTap: item.onTap ?? onTap,
       child: Text(
         item.title,
         style: theme.textTheme.body1
@@ -57,10 +57,10 @@ class NavLink extends StatelessWidget {
   Widget build(BuildContext context) {
     VoidCallback onTap;
 
-    if (this.item.onTap != null) {
-      onTap = this.item.onTap;
-    } else if (this.item.route != null) {
-      if (this.item.replace) {
+    if (item.onTap != null) {
+      onTap = item.onTap;
+    } else if (item.route != null) {
+      if (item.replace) {
         onTap = () => Navigator.of(context).pushReplacementNamed(
               item.route,
               arguments: item.arguments,

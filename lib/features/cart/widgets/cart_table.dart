@@ -20,7 +20,7 @@ class CartTable extends StatelessWidget {
           padding: const EdgeInsets.symmetric(vertical: 12.0),
           child: _buildHeader(),
         ),
-        Line(height: 2),
+        const Line(height: 2),
         Expanded(
           child: _buildRows(),
         ),
@@ -85,7 +85,7 @@ class CartTable extends StatelessWidget {
               ),
               child: Column(
                 children: [
-                  SizedBox(height: 12),
+                  const SizedBox(height: 12),
                   ...cart.map((item) {
                     return Padding(
                       padding: const EdgeInsets.symmetric(vertical: 12.0),

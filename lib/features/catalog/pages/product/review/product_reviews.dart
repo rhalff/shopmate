@@ -12,11 +12,11 @@ class ProductReviews extends StatelessWidget {
     final theme = Theme.of(context);
 
     return Container(
-      padding: EdgeInsets.all(35),
+      padding: const EdgeInsets.all(35),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          if (reviews.length > 0)
+          if (reviews.isNotEmpty)
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
@@ -33,18 +33,18 @@ class ProductReviews extends StatelessWidget {
     );
   }
 
-  _buildReviews() {
+  Widget _buildReviews() {
     final children = <Widget>[];
     for (var i = 0; i < reviews.length; i++) {
       final review = reviews[i];
 
       if (review.review.isNotEmpty) {
-        children.add(
+        children.addAll([
           ProductReview(
             review: review,
           ),
-        );
-        children.add(Divider());
+          const Divider(),
+        ]);
       }
     }
 

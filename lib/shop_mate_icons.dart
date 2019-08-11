@@ -20,45 +20,28 @@ class ShopMate {
 
   static const _kFontFam = 'ShopMate';
 
-  static const IconData bag_black =
-      const IconData(0xe800, fontFamily: _kFontFam);
-  static const IconData bag_white =
-      const IconData(0xe801, fontFamily: _kFontFam);
+  static const IconData bag_black = IconData(0xe800, fontFamily: _kFontFam);
+  static const IconData bag_white = IconData(0xe801, fontFamily: _kFontFam);
   static const IconData bookmark_black =
-      const IconData(0xe802, fontFamily: _kFontFam);
-  static const IconData box_red = const IconData(0xe803, fontFamily: _kFontFam);
-  static const IconData burger_red =
-      const IconData(0xe804, fontFamily: _kFontFam);
-  static const IconData burger_white =
-      const IconData(0xe805, fontFamily: _kFontFam);
+      IconData(0xe802, fontFamily: _kFontFam);
+  static const IconData box_red = IconData(0xe803, fontFamily: _kFontFam);
+  static const IconData burger_red = IconData(0xe804, fontFamily: _kFontFam);
+  static const IconData burger_white = IconData(0xe805, fontFamily: _kFontFam);
   static const IconData calendar_black =
-      const IconData(0xe806, fontFamily: _kFontFam);
-  static const IconData card_black =
-      const IconData(0xe807, fontFamily: _kFontFam);
-  static const IconData close_black =
-      const IconData(0xe807, fontFamily: _kFontFam);
-  static const IconData lock_black =
-      const IconData(0xe808, fontFamily: _kFontFam);
-  static const IconData logo_red =
-      const IconData(0xe809, fontFamily: _kFontFam);
-  static const IconData logo_white =
-      const IconData(0xe80a, fontFamily: _kFontFam);
-  static const IconData minus_black =
-      const IconData(0xe80b, fontFamily: _kFontFam);
-  static const IconData mirror_red =
-      const IconData(0xe80c, fontFamily: _kFontFam);
-  static const IconData more_black =
-      const IconData(0xe80d, fontFamily: _kFontFam);
-  static const IconData person_black =
-      const IconData(0xe80e, fontFamily: _kFontFam);
+      IconData(0xe806, fontFamily: _kFontFam);
+  static const IconData card_black = IconData(0xe807, fontFamily: _kFontFam);
+  static const IconData close_black = IconData(0xe807, fontFamily: _kFontFam);
+  static const IconData lock_black = IconData(0xe808, fontFamily: _kFontFam);
+  static const IconData logo_red = IconData(0xe809, fontFamily: _kFontFam);
+  static const IconData logo_white = IconData(0xe80a, fontFamily: _kFontFam);
+  static const IconData minus_black = IconData(0xe80b, fontFamily: _kFontFam);
+  static const IconData mirror_red = IconData(0xe80c, fontFamily: _kFontFam);
+  static const IconData more_black = IconData(0xe80d, fontFamily: _kFontFam);
+  static const IconData person_black = IconData(0xe80e, fontFamily: _kFontFam);
   static const IconData pinterest_grey =
-      const IconData(0xe80f, fontFamily: _kFontFam);
-  static const IconData plus_black =
-      const IconData(0xe810, fontFamily: _kFontFam);
-  static const IconData search_black =
-      const IconData(0xe812, fontFamily: _kFontFam);
-  static const IconData search_white =
-      const IconData(0xe813, fontFamily: _kFontFam);
-  static const IconData twitter_grey =
-      const IconData(0xe814, fontFamily: _kFontFam);
+      IconData(0xe80f, fontFamily: _kFontFam);
+  static const IconData plus_black = IconData(0xe810, fontFamily: _kFontFam);
+  static const IconData search_black = IconData(0xe812, fontFamily: _kFontFam);
+  static const IconData search_white = IconData(0xe813, fontFamily: _kFontFam);
+  static const IconData twitter_grey = IconData(0xe814, fontFamily: _kFontFam);
 }

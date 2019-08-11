@@ -20,8 +20,7 @@ class DepartmentsBloc extends Bloc<DepartmentsEvent, DepartmentsState> {
   Stream<DepartmentsState> _loadDepartments(LoadDepartments event) async* {
     try {
       yield DepartmentsLoading();
-      final List<Department> departments =
-          await this.departmentRepository.getDepartments();
+      final departments = await departmentRepository.getDepartments();
 
       yield DepartmentsLoaded(departments);
     } catch (error) {

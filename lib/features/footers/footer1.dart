@@ -14,7 +14,7 @@ class Footer1 extends StatelessWidget {
           questionsMenu,
           whatsInStoreMenu,
           followUsMenu,
-          Text('©2016 shopmate Ltd'),
+          const Text('©2016 shopmate Ltd'),
         ],
       ),
     );

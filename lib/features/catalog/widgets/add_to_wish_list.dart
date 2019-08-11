@@ -55,9 +55,7 @@ class _AddToWishListState extends State<AddToWishList> {
             );
           }
 
-          return LinearProgressIndicator();
+          return const LinearProgressIndicator();
         });
   }
-
-  void _onPressed() {}
 }

@@ -5,7 +5,7 @@ class RoundedButton extends StatelessWidget {
   final VoidCallback onPressed;
   final TextStyle style;
   final Color backgroundColor;
-  final Padding padding;
+  final EdgeInsetsGeometry padding;
 
   RoundedButton({
     @required this.text,
@@ -32,8 +32,8 @@ class RoundedButton extends StatelessWidget {
         ),
       ),
       color: backgroundColor ?? theme.accentColor,
-      shape: new RoundedRectangleBorder(
-        borderRadius: new BorderRadius.circular(30.0),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(30.0),
       ),
     );
   }

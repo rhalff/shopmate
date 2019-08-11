@@ -25,7 +25,7 @@ class _ProductInfoState extends State<ProductInfo> {
       children: <Widget>[
         if (productDetails.rating != null)
           Padding(
-            padding: EdgeInsets.only(bottom: 3),
+            padding: const EdgeInsets.only(bottom: 3),
             child: Ratings(
               rating: productDetails.rating,
               stars: 5,
@@ -53,7 +53,7 @@ class _ProductInfoState extends State<ProductInfo> {
           value: _quantity,
           onChanged: _onChangedQuantity,
         ),
-        SizedBox(height: 15),
+        const SizedBox(height: 15),
         Row(
           children: <Widget>[
             AddToCartButton(
@@ -71,14 +71,14 @@ class _ProductInfoState extends State<ProductInfo> {
     );
   }
 
-  get _selectedColorIndex {
+  int get _selectedColorIndex {
     final index = widget.productDetails.colors
         .indexWhere((color) => color.value == _selectedColor);
 
     return index == -1 ? 0 : index;
   }
 
-  get _selectedSizeIndex {
+  int get _selectedSizeIndex {
     final index = widget.productDetails.sizes
         .indexWhere((size) => size.value == _selectedSize);
 
@@ -89,7 +89,7 @@ class _ProductInfoState extends State<ProductInfo> {
   void _onSelectSize(String size) => setState(() => _selectedSize = size);
   void _onSelectColor(String color) => setState(() => _selectedColor = color);
 
-  _buildPrice(context) {
+  Widget _buildPrice(BuildContext context) {
     final numberFormat = NumberFormat.simpleCurrency(name: 'GBP');
     final theme = Theme.of(context);
     final discountedPrice = widget.productDetails.product.discountedPrice;

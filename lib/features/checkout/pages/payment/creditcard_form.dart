@@ -42,7 +42,7 @@ class _CreditCardFormState extends State<CreditCardForm> {
                   suffixIcon: Icon(Icons.calendar_today),
                   hintText: 'MM / YY',
                 ),
-                SizedBox(width: 10),
+                const SizedBox(width: 10),
                 CheckoutFormField(
                   label: 'CVV / CVC *',
                   validator: _validateSecurityCode,
@@ -50,7 +50,7 @@ class _CreditCardFormState extends State<CreditCardForm> {
               ],
             ),
           ),
-          right: Expanded(
+          right: const Expanded(
             child: Text(
               '* CVV or CVC is the card security code, unique three digits number on the back of your card separate from its number.',
             ),

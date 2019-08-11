@@ -101,18 +101,18 @@ class _SignUpFormState extends State<SignUpForm> {
                 _validator.validatePasswordConfirm(value, _data),
             // focusNode: _reviewFocus,
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           RoundedButton(
             text: 'Sign Up',
             onPressed: _signUp,
           ),
-          SizedBox(height: 25),
+          const SizedBox(height: 25),
           Wrap(
             // mainAxisSize: MainAxisSize.min,
             direction: Axis.horizontal,
             children: <Widget>[
-              Text('Already a member?'),
-              SizedBox(width: 15),
+              const Text('Already a member?'),
+              const SizedBox(width: 15),
               NavLink(LinkItem(
                 title: 'Sign In',
                 route: SignInScreen.route,
@@ -120,7 +120,7 @@ class _SignUpFormState extends State<SignUpForm> {
               )),
             ],
           ),
-          SizedBox(height: 25),
+          const SizedBox(height: 25),
         ],
       ),
     );
@@ -139,7 +139,7 @@ class _SignUpFormState extends State<SignUpForm> {
       );
 
       Scaffold.of(context)
-          .showSnackBar(SnackBar(content: Text('Processing Data')));
+          .showSnackBar(SnackBar(content: const Text('Processing Data')));
     }
   }
 }

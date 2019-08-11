@@ -25,20 +25,20 @@ class ProductImageViewer extends StatelessWidget {
       );
     }
 
-    return CircularProgressIndicator();
+    return const CircularProgressIndicator();
   }
 
-  _renderMainImage() {
+  Widget _renderMainImage() {
     if (images.isNotEmpty) {
       return CachedImage(
         'https://backendapi.turing.com/images/products/${images[selectedIndex]}',
       );
     }
 
-    return CircularProgressIndicator();
+    return const CircularProgressIndicator();
   }
 
-  _renderThumbs() {
+  Widget _renderThumbs() {
     final List<Widget> children = images.map((String image) {
       return Container(
         margin: const EdgeInsets.symmetric(vertical: 15.0),

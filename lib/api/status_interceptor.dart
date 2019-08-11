@@ -8,8 +8,8 @@ class StatusInterceptor extends Interceptor {
   FutureOr after(StringResponse response) {
     print(response.toString());
     if (response.statusCode >= 500) {
-      final Map<String, dynamic> body = jsonDecode(response.body);
-      final String error = body['error'];
+      final body = jsonDecode(response.body) as Map<String, dynamic>;
+      final error = body['error'] as String;
 
       if (error != null) {
         if (error.startsWith('TokenExpiredError')) {}

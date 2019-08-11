@@ -8,8 +8,8 @@ class CachedImage extends StatelessWidget {
     return CachedNetworkImage(
       // placeholder: (context, url) => LinearProgressIndicator(),
       placeholder: (context, url) => Container(),
-      fadeInDuration: Duration(microseconds: 0),
-      fadeOutDuration: Duration(microseconds: 0),
+      fadeInDuration: const Duration(microseconds: 0),
+      fadeOutDuration: const Duration(microseconds: 0),
       errorWidget: (context, url, error) => Icon(Icons.error),
       imageUrl: imageUrl,
     );

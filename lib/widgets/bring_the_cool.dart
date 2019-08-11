@@ -28,7 +28,7 @@ class _BringTheCoolState extends State<BringTheCool> {
               ),
             ),
           ),
-          SizedBox(height: 35),
+          const SizedBox(height: 35),
           BorderedText(
             strokeWidth: 1,
             child: Text(
@@ -38,7 +38,7 @@ class _BringTheCoolState extends State<BringTheCool> {
               ),
             ),
           ),
-          SizedBox(height: 35),
+          const SizedBox(height: 35),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: widget.departments.map(

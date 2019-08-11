@@ -14,20 +14,20 @@ class DeliveryAddress extends StatelessWidget {
           Header4(
             'Address',
             style: TextStyle(
-              color: Color(0xFFB4B4B4),
+              color: const Color(0xFFB4B4B4),
             ),
           ),
-          SizedBox(height: 18),
+          const SizedBox(height: 18),
           Text(
             '${deliveryData.address}',
             style: TextStyle(
-              color: Color(0xFF2E2E2E),
+              color: const Color(0xFF2E2E2E),
             ),
           ),
           Text(
             '${deliveryData.city}, ${deliveryData.country}, ${deliveryData.zipCode}',
             style: TextStyle(
-              color: Color(0xFF2E2E2E),
+              color: const Color(0xFF2E2E2E),
             ),
           ),
         ],

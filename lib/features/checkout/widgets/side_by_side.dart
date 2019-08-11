@@ -12,7 +12,7 @@ class SideBySide extends StatelessWidget {
     return Row(
       children: <Widget>[
         left,
-        SizedBox(width: 20),
+        const SizedBox(width: 20),
         right,
       ],
     );

@@ -45,7 +45,7 @@ class ShoppingCartApi extends ApiClient with _$ShoppingCartApiClient {
   ///
   ///
   @GetReq(path: '/getSaved/:cart_id')
-  Future<Object> getSaved(
+  Future<List<Favorite>> getSaved(
     @PathParam('cart_id') String cartId,
   );
 

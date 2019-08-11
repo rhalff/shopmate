@@ -15,13 +15,12 @@ class _DepartmentScreenState extends State<DepartmentScreen> {
   ProductsBloc _productsBloc;
   @override
   void initState() {
-    _productsBloc = BlocProvider.of<ProductsBloc>(context);
-
-    _productsBloc.dispatch(
-      LoadProducts(
-        departmentId: widget.department.departmentId,
-      ),
-    );
+    _productsBloc = BlocProvider.of<ProductsBloc>(context)
+      ..dispatch(
+        LoadProducts(
+          departmentId: widget.department.departmentId,
+        ),
+      );
 
     super.initState();
   }
@@ -46,7 +45,7 @@ class _DepartmentScreenState extends State<DepartmentScreen> {
             );
           }
 
-          return Center(child: CircularProgressIndicator());
+          return Center(child: const CircularProgressIndicator());
         },
       ),
     );

@@ -13,10 +13,9 @@ class DepartmentRepository {
     final cacheKey = 'getDepartments()';
 
     try {
-      return cache.read(cacheKey);
+      return cache.read(cacheKey) as List<Department>;
     } catch (_) {
-      final List<Department> departmentResult =
-          await departmentsApi.getDepartments();
+      final departmentResult = await departmentsApi.getDepartments();
 
       cache.upsert(cacheKey, departmentResult);
 

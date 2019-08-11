@@ -19,7 +19,7 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
 
   Stream<OrderState> _loadOrder(LoadOrder event) async* {
     try {
-      final Order order = await this.orderRepository.getOrder(event.orderId);
+      final order = await orderRepository.getOrder(event.orderId);
 
       yield OrderLoaded(order);
     } catch (error) {

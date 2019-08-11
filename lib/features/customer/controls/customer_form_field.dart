@@ -80,7 +80,7 @@ class _CustomerFormFieldState extends State<CustomerFormField> {
     );
   }
 
-  _buildTextField(context) {
+  Widget _buildTextField(context) {
     return Container(
       width: 350,
       child: TextFormField(

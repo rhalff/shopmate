@@ -40,7 +40,7 @@ class _RadioState<T> extends State<ColoredRadio<T>>
   @override
   Widget build(BuildContext context) {
     assert(debugCheckHasMaterial(context));
-    final ThemeData themeData = Theme.of(context);
+    final themeData = Theme.of(context);
     Size size;
     switch (widget.materialTapTargetSize ?? themeData.materialTapTargetSize) {
       case MaterialTapTargetSize.padded:
@@ -51,7 +51,7 @@ class _RadioState<T> extends State<ColoredRadio<T>>
         size = const Size(2 * kRadialReactionRadius, 2 * kRadialReactionRadius);
         break;
     }
-    final BoxConstraints additionalConstraints = BoxConstraints.tight(size);
+    final additionalConstraints = BoxConstraints.tight(size);
     return _RadioRenderObjectWidget(
       selected: widget.value == widget.groupValue,
       activeColor: widget.activeColor ?? themeData.toggleableActiveColor,
@@ -127,7 +127,7 @@ class _RenderRadio extends RenderToggleable {
     this.borderColor,
     ValueChanged<bool> onChanged,
     BoxConstraints additionalConstraints,
-    radius = 8.0,
+    this.radius = 8.0,
     @required TickerProvider vsync,
   }) : super(
           value: value,
@@ -141,14 +141,14 @@ class _RenderRadio extends RenderToggleable {
 
   @override
   void paint(PaintingContext context, Offset offset) {
-    final Canvas canvas = context.canvas;
+    final canvas = context.canvas;
 
     paintRadialReaction(canvas, offset, size.center(Offset.zero));
 
-    final Offset center = (offset & size).center;
-    final Color radioColor = onChanged != null ? activeColor : inactiveColor;
+    final center = (offset & size).center;
+    final radioColor = onChanged != null ? activeColor : inactiveColor;
 
-    Paint paint = Paint();
+    var paint = Paint();
     if (borderColor != null) {
       paint = Paint()
         ..color = borderColor

@@ -6,7 +6,7 @@ class LogInterceptor extends Interceptor {
   @override
   FutureOr<void> before(RouteBase route) {
     print('URL: ${route.getUrl}');
-    return super.before(route);
+    super.before(route);
   }
 
   @override

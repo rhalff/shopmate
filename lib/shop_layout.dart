@@ -62,7 +62,7 @@ class _ShopLayoutState extends State<ShopLayout> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    Size size = MediaQuery.of(context).size;
+    final size = MediaQuery.of(context).size;
     Color backgroundColor;
     double elevation;
     Color appBarColor;
@@ -76,7 +76,7 @@ class _ShopLayoutState extends State<ShopLayout> {
       elevation = 4;
     }
 
-    Widget child = BlocBuilder(
+    final child = BlocBuilder(
       bloc: _authBloc,
       builder: (BuildContext context, AuthState state) {
         return Scaffold(
@@ -91,7 +91,7 @@ class _ShopLayoutState extends State<ShopLayout> {
             title: widget.top,
             actions: <Widget>[
               CartIconButton(),
-              SizedBox(width: 24),
+              const SizedBox(width: 24),
             ],
           ),
           body: widget.body,

@@ -12,11 +12,11 @@ class DeliveryInfo extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Header3('Delivery'),
-          SizedBox(height: 15),
+          const SizedBox(height: 15),
           DeliveryAddress(
             deliveryData: deliveryData,
           ),
-          SizedBox(height: 15),
+          const SizedBox(height: 15),
           DeliveryOptionsDetails(
             shipping: deliveryData.shipping,
           ),

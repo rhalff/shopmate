@@ -8,16 +8,16 @@ class ApiResponseErrorHandler extends ErrorHandler<StringResponse> {
   AuthBloc authBloc;
   ApiResponseErrorHandler({this.authBloc});
   @override
-  handle(StringResponse response, StackTrace stackTrace) {
-    final Map<String, dynamic> body = jsonDecode(response.body);
+  void handle(StringResponse exception, StackTrace stackTrace) {
+    final body = jsonDecode(exception.body) as Map<String, dynamic>;
 
-    if (response.statusCode >= 500) {
+    if (exception.statusCode >= 500) {
       final error = body['error'];
       if (error != null) {
-        if (error.startsWith('TokenExpiredError')) {
-          this.authBloc.dispatch(
-                SignOut(),
-              ); // should probably be ReAuthenticate to distinct between just a SignOut.
+        if (error.startsWith('TokenExpiredError') == true) {
+          authBloc.dispatch(
+            SignOut(),
+          ); // should probably be ReAuthenticate to distinct between just a SignOut.
         }
       }
     } else {

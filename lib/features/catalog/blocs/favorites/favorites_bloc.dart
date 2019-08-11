@@ -25,7 +25,7 @@ class FavoritesBloc extends Bloc<FavoritesEvent, FavoritesState> {
 
   Stream<FavoritesState> _loadFavorites() async* {
     try {
-      final List<int> favorites = await this.favoritesRepository.getFavorites();
+      final favorites = await favoritesRepository.getFavorites();
 
       yield FavoritesLoaded(favorites);
     } catch (error) {
@@ -35,7 +35,7 @@ class FavoritesBloc extends Bloc<FavoritesEvent, FavoritesState> {
 
   Stream<FavoritesState> _addToFavorites(AddToFavorites event) async* {
     if (currentState is FavoritesLoaded) {
-      final List<int> updatedFavorites =
+      final updatedFavorites =
           await favoritesRepository.addFavorite(event.productId);
 
       yield FavoritesLoaded(updatedFavorites);
@@ -45,7 +45,7 @@ class FavoritesBloc extends Bloc<FavoritesEvent, FavoritesState> {
   Stream<FavoritesState> _removeFromFavorites(
       RemoveFromFavorites event) async* {
     if (currentState is FavoritesLoaded) {
-      final List<int> updatedFavorites =
+      final updatedFavorites =
           await favoritesRepository.removeFavorite(event.productId);
 
       yield FavoritesLoaded(updatedFavorites);
@@ -54,8 +54,7 @@ class FavoritesBloc extends Bloc<FavoritesEvent, FavoritesState> {
 
   Stream<FavoritesState> clearFavorites() async* {
     if (currentState is FavoritesLoaded) {
-      final List<int> updatedFavorites =
-          await favoritesRepository.clearFavorites();
+      final updatedFavorites = await favoritesRepository.clearFavorites();
       yield FavoritesLoaded(updatedFavorites);
     }
   }

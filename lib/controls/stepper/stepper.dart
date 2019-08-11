@@ -22,10 +22,10 @@ class Stepper extends StatelessWidget {
     final children = <Widget>[];
 
     for (var index = 0; index < steps.length; index++) {
-      String step = steps[index];
+      final step = steps[index];
 
-      TextAlign alignment = TextAlign.center;
-      StepperState stepperState = StepperState.Uncompleted;
+      var alignment = TextAlign.center;
+      var stepperState = StepperState.Uncompleted;
 
       if (index < currentStep) {
         stepperState = StepperState.Completed;

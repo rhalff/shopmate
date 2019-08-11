@@ -17,7 +17,7 @@ class _CartIconButtonState extends State<CartIconButton> {
   Widget _build(BuildContext context, CartState cartState) {
     final theme = Theme.of(context);
 
-    const icon = const Icon(Icons.shopping_cart);
+    const icon = Icon(Icons.shopping_cart);
 
     if (cartState is CartLoading) {
       return Center(
@@ -59,17 +59,17 @@ class _CartIconButtonState extends State<CartIconButton> {
                 tooltip: 'Show shopping cart',
                 onPressed: _onPressed,
               ),
-              if (state.cart.length > 0)
+              if (state.cart.isNotEmpty)
                 Positioned(
                   right: 0,
                   top: 8,
-                  child: new Container(
-                    padding: EdgeInsets.all(2),
-                    decoration: new BoxDecoration(
+                  child: Container(
+                    padding: const EdgeInsets.all(2),
+                    decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(12),
                     ),
-                    constraints: BoxConstraints(
+                    constraints: const BoxConstraints(
                       minWidth: 20,
                       minHeight: 20,
                     ),
@@ -97,7 +97,7 @@ class _CartIconButtonState extends State<CartIconButton> {
     Navigator.of(context).pushNamed(CartScreen.route, arguments: {
       'transition': PageTransitionType.scale,
       'alignment': Alignment.topRight,
-      'duration': Duration(milliseconds: 400),
+      'duration': const Duration(milliseconds: 400),
     });
   }
 }

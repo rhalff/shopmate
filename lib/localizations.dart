@@ -7,9 +7,9 @@ import 'l10n/messages_all.dart';
 
 class AppLocalizations {
   static Future<AppLocalizations> load(Locale locale) {
-    final String name =
+    final name =
         locale.countryCode == null ? locale.languageCode : locale.toString();
-    final String localeName = Intl.canonicalizedLocale(name);
+    final localeName = Intl.canonicalizedLocale(name);
 
     return initializeMessages(localeName).then((bool _) {
       Intl.defaultLocale = localeName;
