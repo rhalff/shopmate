@@ -10,6 +10,9 @@ import 'features/cart/blocs/blocs.dart';
 import 'features/customer/blocs/blocs.dart';
 
 void main() async {
+  // Fix initialization for a bug in current flutter master (Remove again later)
+  WidgetsFlutterBinding.ensureInitialized();
+
   final application = Application();
 
   await application.setup();
