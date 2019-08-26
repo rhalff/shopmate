@@ -1,8 +1,5 @@
 part of checkout.repositories;
 
-// Can I make the CachedRepository generic?
-// Seems not so simple, because how to cache can be pretty specific.
-
 class TaxRepository {
   TaxApi taxApi;
   Cache cache;

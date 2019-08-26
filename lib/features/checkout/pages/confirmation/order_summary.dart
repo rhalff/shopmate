@@ -71,7 +71,7 @@ class OrderSummary extends StatelessWidget {
         name: product.name,
         attributes: product.attributes,
         quantity: product.quantity,
-        price: product.price,
+        price: product.price * product.quantity,
         odd: (index % 2) == 1,
         context: context,
       );
