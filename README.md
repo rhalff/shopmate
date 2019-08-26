@@ -48,6 +48,5 @@ flutter run
 <p><a target="_blank" rel="noopener noreferrer" href="https://raw.githubusercontent.com/rhalff/shopmate/master/screenshots/s_flutter_21.png"><img src="https://raw.githubusercontent.com/rhalff/shopmate/master/screenshots/s_flutter_21.png" alt="Screenshot" style="max-width:350px;"></a></p>
 <p><a target="_blank" rel="noopener noreferrer" href="https://raw.githubusercontent.com/rhalff/shopmate/master/screenshots/s_flutter_22.png"><img src="https://raw.githubusercontent.com/rhalff/shopmate/master/screenshots/s_flutter_22.png" alt="Screenshot" style="max-width:350px;"></a></p>
 <p><a target="_blank" rel="noopener noreferrer" href="https://raw.githubusercontent.com/rhalff/shopmate/master/screenshots/s_flutter_23.png"><img src="https://raw.githubusercontent.com/rhalff/shopmate/master/screenshots/s_flutter_23.png" alt="Screenshot" style="max-width:350px;"></a></p>
-<p><a target="_blank" rel="noopener noreferrer" href="https://raw.githubusercontent.com/rhalff/shopmate/master/screenshots/s_flutter_24.png"><img src="https://raw.githubusercontent.com/rhalff/shopmate/master/screenshots/s_flutter_24.png" alt="Screenshot" style="max-width:350px;"></a></p>
 </div>
 
